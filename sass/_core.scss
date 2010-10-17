@@ -1,0 +1,199 @@
+/*-  BASE STYLES
+
+This is the "config" file for the framework. It's seldom that you have to touch this
+more than once during the building of the site (most site specific stuff should go
+into "_main.scss").
+
+Core.scss includes variables, @font-faces rules, and other nifty stuff you
+just have to dump somewhere. You control most of the site's core functionality
+from here. As you can see, some minor reseting is done below, as well as 
+defining a mixin. Do not fear – this is stuff that doesn't go into "_reset.scss"
+because you still might want to alter things in here. 
+
+----------------------------------------------------------------------*/
+
+// Font stacks
+
+@font-face {
+	font-family: 'Inconsolata';
+	src: url('../fonts/Inconsolata.eot');
+	src: local('Inconsolata'), url('../fonts/Inconsolata.ttf') format('truetype'), url('../fonts/Inconsolata.svg#webfont') format('svg');
+}
+
+$serif: Palatino, "Palatino Linotype", Georgia, "Times New Roman", serif;
+$sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$monospaced: Inconsolata, Monaco, "Courier New", Courier, monospace;
+
+$page_width: 940;
+
+// Colors
+
+$accent: #f00;		// Typically for links
+$comp: green;		// Some other cool color
+
+// Layout
+
+$page_width: 940;		// Sets the main wrapper width to 940px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
+						// in library/_utils.scss as well :(
+
+
+/*- Fluid images and objects ----------*/
+
+img, object, embed {
+	max-width: 100%;
+	height: auto !important;
+}
+
+
+
+
+
+/*- GLOBAL
+----------------------------------------------------------------------*/
+/*
+ This inner element makes centers the page and acts like a wrapper for the fluid elements.
+*/
+$page_width: ($page_width / 10);
+
+.wrapper{
+	max-width: #{$page_width}em;
+	width: 90%;
+	margin: 0 auto;
+	@include clearfix;
+}
+
+
+body {
+	/* 62.5% = 10px */
+	/* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
+	"CSS" – Cascading! */
+	
+	font: normal 62.5%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;	/* Goodness */
+	-webkit-text-size-adjust: none;
+	color: #333;
+	
+	&.grid{
+		/* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
+		/js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
+		to the baseline grid you're using (this one is 24px) */
+		
+		background-image: url(../images/baseline-grid.png);
+	}
+	
+	&.grid .wrapper{
+		/* Define path to columns.png. This one is 40-20 columns */
+		background-image: url(../images/columns.png);
+	}
+	
+}
+
+
+/*- LINKS
+----------------------------------------------------------------------*/
+a{
+	position: relative;
+}
+
+a:active{
+	outline: none;
+	top: 1px;
+}
+a:focus{
+	outline: thin dotted;
+}
+
+a em, a time, a strong, a span{
+	cursor: pointer;
+}
+
+
+/* =HEADINGS */
+/*-----------------------------------------*/
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: normal; 
+	margin-bottom: 0; 
+	line-height: 1.5; 
+	text-rendering: optimizeLegibility;		/* Fix kerning */
+}
+
+
+/*- ELEMENTS
+----------------------------------------------------------------------*/
+
+p{
+	@include font(1.3em, 1.5);
+}
+
+abbr {
+	cursor: help;
+}
+
+label{
+	font-weight: bold;
+}
+
+time[title]{
+	font-weight: bolder;
+}
+
+pre, code{
+	font-size: 1em;
+	font-family: $monospaced;
+}
+pre code{
+	font-size: 1.1em;
+	-webkit-font-smoothing: subpixel-antialiased;		/* Code doesn't look that good antialiased */
+}
+
+del{
+	color: #999; border: 0;
+}
+
+/* Used for error messages and such. */
+
+.negative{
+	color: #b30000;
+}
+.positive{
+	color: green;
+}
+
+/**
+* 	Button style
+* 	Usage: include the mixin and define base color. Set $hover to true if you want your button to show hover effects.
+*/
+@mixin button($basecolor: #f1f1f1, $hover: false){
+		-moz-border-radius: 1em; -webkit-border-radius: 1em; border-radius: 1em;
+		background: $basecolor -moz-linear-gradient(center top, transparent 0%, rgba(0,0,0, 0.2) 100%);
+		background: $basecolor -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0, 0.2)) );
+		border:1px solid rgba(0, 0, 0, 0.3);
+		color: darken($basecolor, 70%);
+		font-weight: 500;
+		padding: 0 1em;
+		line-height: 1.667em;
+		text-shadow: 0 1px 1px #fff;
+		text-transform: lowercase;
+		display: inline-block;
+		@include transition(background-color 0.15s ease-out);
+		-webkit-box-shadow: #fff 0 1px 0, inset rgba(255,255,255, 0.7) 0 1px 1px;
+		-moz-box-shadow: #fff 0 1px 0, inset rgba(255,255,255, 0.7) 0 1px 1px;
+		box-shadow: #fff 0 1px 0, inset rgba(255,255,255, 0.7) 0 1px 1px;
+		
+	@if($hover == true){
+		&:hover{
+			border-color: rgba(0,0,0, 0.3); color: darken($basecolor, 70%);
+			background-color: lighten($basecolor, 3%);
+		}
+	}
+	&:active{
+		top: auto; outline: none !important;
+		background-color: darken($basecolor, 10%);
+		@include transition(none);
+	}
+}
+
+.button, button, input[type=submit]{
+	@include button;
+}

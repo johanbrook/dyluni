@@ -1,0 +1,58 @@
+/**
+*	The compulsory reset file. It's the HTML5 one (duh .. ) with some modifications.
+*/
+
+
+
+/* 
+html5doctor.com Reset Stylesheet
+Version: 1.4 
+Date: 2009-07-27 (modified 2010-03-13)
+Author: Richard Clark - http://richclarkdesign.com. Modified by Johan Brook - http://johanbrook.com
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,menu,nav,section,menu,time,mark,audio,video { margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent; }
+body { line-height:1; }
+article,aside,dialog,figure,footer,header,hgroup,nav,section { display:block; }
+nav ul { list-style:none; }
+blockquote,q { quotes:none; }
+blockquote:before,blockquote:after,q:before,q:after { content:''; content:none; }
+a { margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:transparent; }
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+del { text-decoration:line-through; }
+abbr[title],dfn[title] { border-bottom:1px dotted #000; cursor:help; }
+table { border-collapse:collapse; border-spacing:0; }
+hr { display:block; height:1px; border:0; border-top:1px solid #cccccc; margin:1em 0; padding:0; }
+input,select { vertical-align:middle; }
+* {cursor: default} a, label, a img {cursor: pointer;}
+strong	{font-weight: bold;}
+em		{font-style: italic;}
+small	{font-size: 85%;}
+a img	{border: 0; display: block;}
+div,a,p,ul,li,header,section,nav,aside,article	{position: relative;}
+/* Enable customized scrollbars in Webkit. Remember 'position: absolute' in body selector, and maybe 'right: 10px'. */
+html {overflow: auto;}
+
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+
+pre{
+	display: block;
+	margin-bottom: 1.5em;
+	white-space: pre;           /* CSS 2.0 */
+	white-space: pre-wrap;      /* CSS 2.1 */
+	white-space: pre-line;      /* CSS 3.0 */
+	white-space: -pre-wrap;     /* Opera 4-6 */
+	white-space: -o-pre-wrap;   /* Opera 7 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	white-space: -hp-pre-wrap;  /* HP Printers */
+	word-wrap: break-word;      /* IE 5+ */
+	line-height: 1.5em;	
+}
+
+sup	{
+	vertical-align: super; font-size: smaller;
+}
+sub{
+	vertical-align: sub; font-size: smaller;
+}

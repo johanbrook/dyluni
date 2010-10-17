@@ -1,0 +1,141 @@
+/*-  HANDY UTILS
+----------------------------------------------------------------------*/
+
+/**
+*	If you feel you want to add long term stuff, like a handy mixin, add it here. Mixins, helper 
+*	classes and variables in this file should for reuse only.
+*
+*/
+
+$page_width_spec: 940;
+
+
+// A regular clearfix which can be applied directly in the CSS (no need for nasty HTML classes): "@include clearfix" on parent element.
+@mixin clearfix{
+	&:after{
+		visibility: hidden;
+     	display: block;
+	    font-size: 0;
+     	content: " ";
+     	clear: both;
+     	height: 0;	
+	}
+	& {display: inline-block;}
+	* html & {height: 1%;}
+	& {display: block;}
+}
+
+// CSS3 columns.
+// @args $count: The number of columns.
+@mixin columns($count){
+	-webkit-column-count: $count; -webkit-column-gap: 1.5em;
+	-moz-column-count: $count; -moz-column-gap: 1.5em;
+	column-count: $count; column-gap: 1.5em;
+	
+	& > p{
+		position: static;		// Boy, it took me long time to figure this out.
+	}
+}
+
+// Reset columns
+@mixin no-columns{
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
+	column-count: 1;
+}
+
+// Shorthand for font size and line height.
+@mixin font($size, $line){
+	font-size: $size;
+	line-height: $line;
+}
+
+
+// Box shadow
+@mixin box-shadow($args){
+	-webkit-box-shadow: $args;
+	-moz-box-shadow: $args;
+	box-shadow: $args;
+}
+
+// Border radius
+
+@mixin border-radius($args){
+	-webkit-border-radius: $args;
+	-moz-border-radius: $args;
+	border-radius: $args;
+}
+
+// Transition
+@mixin transition($args){
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+// Gradient
+
+@mixin gradient($from, $to){
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -moz-linear-gradient(center top, $from 0%, $to 100%);
+}
+
+// Used in responsive design, make floated elements span 100% and remove the float:
+
+@mixin block($width: 100%, $centered: false){
+	float: none;
+	width: $width;
+	@if($centered == true){
+	margin: 0 auto;
+	}
+}
+.block{
+	@include block;
+}
+
+// Reset common values
+@mixin reset{
+	margin: 0;
+	padding: 0;
+	height: 0;
+	border: 0;
+	font-size: 0;
+	content: "";
+}
+
+// Instead of calculating the percentages in responsive web design, just include "column(width)".
+@mixin column($width, $property: width, $tot: $page_width_spec){
+	#{$property}: ($width/$page_width_spec)*100%;
+}
+
+
+/*
+* Non-semantic helper classes
+*/
+
+/* Nicer ampersand */
+.amp{
+	font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif; font-size: 1.4em; font-style: italic;
+}
+
+/* Clearing stuff */
+.clear{clear: both; display: block; height: 1px; margin: -1px 0 0 0;}
+
+.clearfix{
+	@include clearfix;
+}
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display:none; }
+
+/* Hide only visually, but have it available for screenreaders
+   www.webaim.org/techniques/css/invisiblecontent/
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden { position:absolute !important;   
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+ 
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }

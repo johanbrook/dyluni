@@ -1,0 +1,46 @@
+/**
+*	MAIN STYLESHEET
+*
+*	This is the site specific file, in which almost ALL styles regarding the design should go.
+*	I encourage you to use SASS's @import features to divide you stylesheet in smaller parts
+*	(see the import of _header.scss). These partials should go in the folder ... partials :).
+*	Be sure to name them with an underscore in the beginning so SASS doesn't compile them
+*	separately.
+*/
+
+
+/*	=MAIN
+	------------------------------------------------------ */
+
+
+/*	=LINKS
+	------------------------------------------------------ */
+a{
+	-webkit-tap-highlight-color: rgba(200,0,0,0.4);
+}
+
+
+/*	=HEADINGS
+	------------------------------------------------------ */
+
+/*	=FRONTPAGE
+	------------------------------------------------------ */
+@import "partials/frontpage";
+
+
+/*	=HEADER
+	------------------------------------------------------ */
+@import "partials/header";
+
+
+/*	=FOOTER
+	------------------------------------------------------ */
+
+
+/*- optional vanity styles ----------*/
+
+::selection {background: $accent;}
+::-moz-selection {background: $accent;}
+
+img::selection {background: transparent;}
+img::-moz-selection {background: transparent;}
