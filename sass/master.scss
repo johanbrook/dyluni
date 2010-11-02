@@ -13,6 +13,7 @@
 ----------------------------------------------------------------------*/
 @import "core";				// Core styles
 @import "main"; 			// The main, site specific .scss file
+	/* --> partials */ 		// Instead of putting all sections in one big stylesheet, divide them into smaller ones (like "header", "footer" etc)
 @import "responsive";		// Responsive styles (for iPhone, Android, iPad etc.)
 
 /*-  Print

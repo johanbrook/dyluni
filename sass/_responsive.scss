@@ -1,13 +1,16 @@
 /*-  STYLES FOR A RESPONSIVE DESIGN
 ----------------------------------------------------------------------*/
 
-/* Feel free to add more media queries. These are the guys I mostly use */
+/* Feel free to add more media queries. These are the guys I usually use */
 
 
-/* iPad in portrait */
+/* iPad */
 
-@media only screen and (max-width: 768px) {
-
+@media only screen and (max-width: 1024px) {
+	
+	section, article, aside, .block, p, h1, h2{
+		@include block;
+	}
 
 }
 

@@ -11,7 +11,14 @@
 
 /*	=MAIN
 	------------------------------------------------------ */
-
+body{
+	/* 62.5% = 10px */
+	/* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
+	"CSS" – Cascading! */
+	
+	font: normal 62.5%/#{$lineheight} $sans;
+	color: #000;
+}
 
 /*	=LINKS
 	------------------------------------------------------ */
@@ -19,13 +26,20 @@ a{
 	-webkit-tap-highlight-color: rgba(200,0,0,0.4);
 }
 
+a:hover, a:focus{
+	
+}
 
 /*	=HEADINGS
-	------------------------------------------------------ */
+	------------------------------------------------------ */	
+	
+h1{
+	font-size: 3.6em;
+}
 
-/*	=FRONTPAGE
-	------------------------------------------------------ */
-@import "partials/frontpage";
+h2{
+	font-size: 2.4em;
+}
 
 
 /*	=HEADER
@@ -33,14 +47,20 @@ a{
 @import "partials/header";
 
 
+/*	=FRONTPAGE
+	------------------------------------------------------ */
+@import "partials/frontpage";
+
+
 /*	=FOOTER
 	------------------------------------------------------ */
+@import "partials/footer";
 
 
 /*- optional vanity styles ----------*/
 
-::selection {background: $accent;}
-::-moz-selection {background: $accent;}
+::selection {background: $accent; color: #000;}
+::-moz-selection {background: $accent; color: #000;}
 
 img::selection {background: transparent;}
 img::-moz-selection {background: transparent;}

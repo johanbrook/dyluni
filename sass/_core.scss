@@ -24,8 +24,6 @@ $serif: Palatino, "Palatino Linotype", Georgia, "Times New Roman", serif;
 $sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $monospaced: Inconsolata, Monaco, "Courier New", Courier, monospace;
 
-$page_width: 940;
-
 // Colors
 
 $accent: #f00;		// Typically for links
@@ -36,6 +34,7 @@ $comp: green;		// Some other cool color
 $page_width: 940;		// Sets the main wrapper width to 940px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
 						// in library/_utils.scss as well :(
 
+$lineheight: 1.5em;		// Specifies the global lineheight. Used for a nice vertical rhythm. 
 
 /*- Fluid images and objects ----------*/
 
@@ -64,14 +63,8 @@ $page_width: ($page_width / 10);
 
 
 body {
-	/* 62.5% = 10px */
-	/* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
-	"CSS" – Cascading! */
-	
-	font: normal 62.5%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;	/* Goodness */
 	-webkit-text-size-adjust: none;
-	color: #333;
 	
 	&.grid{
 		/* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
@@ -79,6 +72,7 @@ body {
 		to the baseline grid you're using (this one is 24px) */
 		
 		background-image: url(../images/baseline-grid.png);
+		background-repeat: repeat;
 	}
 	
 	&.grid .wrapper{
@@ -116,6 +110,10 @@ h1, h2, h3, h4, h5, h6{
 	margin-bottom: 0; 
 	line-height: 1.5; 
 	text-rendering: optimizeLegibility;		/* Fix kerning */
+	
+	a{
+		
+	}
 }
 
 
@@ -123,7 +121,7 @@ h1, h2, h3, h4, h5, h6{
 ----------------------------------------------------------------------*/
 
 p{
-	@include font(1.3em, 1.5);
+	@include font(1.3em, 1.5);		// Set global paragraph font size here
 }
 
 abbr {
