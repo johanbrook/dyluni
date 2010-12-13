@@ -107,6 +107,15 @@ $page_width_spec: 980;
 	@include block;
 }
 
+// For links or buttons with background-image applied, and you want it to change on hover:
+
+@mixin hover($dir: bottom){
+	&:hover{
+		background-position-y: #{$dir} !important;
+	}
+}
+
+
 // Reset common values
 @mixin reset{
 	margin: 0;
