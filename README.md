@@ -63,4 +63,4 @@ In here we've got the goodness. `master.scss` is the master (duh) file which is 
 
 ## Outro
 
-Dyluni is largely based on the HTML5 Boilerplate project, but with some extra stuff added by me, and of course powered by Sass. Feel free to fork or get in touch with me [here](http://johanbrook.com/about/contact "Contact"). 
+Dyluni is based on the HTML5 Boilerplate project, but with some extra stuff added by me, and of course powered by Sass. Feel free to fork or get in touch with me [here](http://johanbrook.com/about/contact "Contact"). 
