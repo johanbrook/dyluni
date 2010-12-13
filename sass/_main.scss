@@ -16,14 +16,16 @@ body{
 	/* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
 	"CSS" – Cascading! */
 	
-	font: normal 62.5%/#{$lineheight} $sans;
+	font: normal 62.5%/28px $sans;
 	color: #000;
+	background-color: #fff;
 }
 
 /*	=LINKS
 	------------------------------------------------------ */
 a{
-	-webkit-tap-highlight-color: rgba(200,0,0,0.4);
+	-webkit-tap-highlight-color: $highlight;
+	@include transition(color 0.2s ease-out);
 }
 
 a:hover, a:focus{
@@ -35,12 +37,16 @@ a:hover, a:focus{
 	
 h1{
 	font-size: 3.6em;
+	margin-bottom: $lineheight;
 }
 
 h2{
 	font-size: 2.4em;
 }
 
+h3{
+	font-size: 2em;
+}
 
 /*	=HEADER
 	------------------------------------------------------ */
@@ -51,6 +57,16 @@ h2{
 	------------------------------------------------------ */
 @import "partials/frontpage";
 
+
+/*	=FORMS
+	------------------------------------------------------ */
+	
+@import "partials/forms";
+
+/*	=SIDEBAR
+	------------------------------------------------------ */
+
+@import "partials/sidebar";
 
 /*	=FOOTER
 	------------------------------------------------------ */

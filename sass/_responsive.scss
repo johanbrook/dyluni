@@ -3,6 +3,17 @@
 
 /* Feel free to add more media queries. These are the guys I usually use */
 
+@media only screen and (max-device-width: 1024px){
+
+	/* Only make the text non-adjustable for iPads and iPhones. Putting
+	   this in the global stylesheet will make the text non-reziable in Webkit browsers (eek!) */
+	-webkit-text-size-adjust: none;
+}
+
+/* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
+@media only screen and (-webkit-min-device-pixel-ratio: 2){
+	
+}
 
 /* iPad */
 

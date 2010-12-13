@@ -23,6 +23,12 @@
   font-size: 1.4em;
   font-style: italic; }
 
+/* For separators */
+.sep {
+  color: #000;
+  font-size: 0.8em;
+  line-height: 28px; }
+
 /* Quick floating */
 .alignleft {
   float: left;
@@ -77,7 +83,7 @@
 /* 
 html5doctor.com Reset Stylesheet
 Version: 1.4 
-Date: 2009-07-27 (modified 2010-03-13)
+Date: 2009-07-27 (modified 2010-12-13)
 Author: Richard Clark - http://richclarkdesign.com. Modified by Johan Brook - http://johanbrook.com
 */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video {
@@ -95,9 +101,10 @@ body {
 article, aside, dialog, figure, footer, header, hgroup, nav, section {
   display: block; }
 
-nav ul {
+ul {
   list-style: none; }
 
+/* Define list styles where appropriate */
 blockquote, q {
   quotes: none; }
 
@@ -146,10 +153,7 @@ hr {
 input, select {
   vertical-align: middle; }
 
-* {
-  cursor: default; }
-
-a, label, a img {
+label, a img {
   cursor: pointer; }
 
 strong {
@@ -181,7 +185,6 @@ input[type="checkbox"] {
 
 pre {
   display: block;
-  margin-bottom: 1.5em;
   white-space: pre;
   /* CSS 2.0 */
   white-space: pre-wrap;
@@ -239,8 +242,9 @@ img, object, embed {
  This inner element makes centers the page and acts like a wrapper for the fluid elements.
 */
 .wrapper {
-  max-width: 94em;
+  max-width: 98em;
   width: 90%;
+  height: 100%;
   margin: 0 auto; }
   .wrapper:after {
     visibility: hidden;
@@ -256,31 +260,28 @@ img, object, embed {
   .wrapper {
     display: block; }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  /* Goodness */
-  -webkit-text-size-adjust: none; }
-  body.grid {
-    /* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
-    /js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
-    to the baseline grid you're using (this one is 24px) */
-    background-image: url(../images/baseline-grid.png);
-    background-repeat: repeat; }
-  body.grid .wrapper {
-    /* Define path to columns.png. This one is 40-20 columns */
-    background-image: url(../images/columns.png); }
+body.grid {
+  /* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
+  /js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
+  to the baseline grid you're using (this one is 28px). I'm using http://thesquaregrid.com right now. */
+  background-image: url(../images/grid.png);
+  background-repeat: repeat; }
+body.grid .wrapper {
+  /* Define path to the site's columns. */
+  background-image: url(../images/baseline.png);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-left: 1px solid #999;
+  border-right: 1px solid #999; }
 
 /*- LINKS
 ----------------------------------------------------------------------*/
 a {
-  position: relative; }
+  position: relative;
+  -webkit-font-smoothing: antialiased; }
 
-a:active {
+a:active, a:focus {
   outline: none;
   top: 1px; }
-
-a:focus {
-  outline: thin dotted; }
 
 a em, a time, a strong, a span {
   cursor: pointer; }
@@ -291,14 +292,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin-bottom: 0;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   /* Fix kerning */ }
 
 /*- ELEMENTS
 ----------------------------------------------------------------------*/
-p {
+p, ul, ol {
   font-size: 1.3em;
-  line-height: 1.5; }
+  line-height: 28px;
+                                  		/* Set global paragraph font size here
+										Remember to set margins in article text! */ }
 
 abbr {
   cursor: help; }
@@ -309,14 +313,30 @@ label {
 time[title] {
   font-weight: bolder; }
 
+hr {
+  border: 0;
+  padding: 0;
+  height: 1px;
+  background-color: #e2e2e2;
+  margin: 56px auto 55px;
+  /* Make up for the border */ }
+
 pre, code {
-  font-size: 1em;
-  font-family: Inconsolata, Monaco, "Courier New", Courier, monospace; }
+  font-family: Inconsolata, Monaco, "Courier New", Courier, monospace;
+  line-height: 28px; }
 
 pre code {
   font-size: 1.1em;
   -webkit-font-smoothing: subpixel-antialiased;
   /* Code doesn't look that good antialiased */ }
+  pre code[class]:after {
+    content: attr(class);
+    /* In code blocks, add the language to the class attribute and it'll be shown below the block */
+    display: block;
+    text-align: right;
+    font-size: smaller;
+    padding-top: 5px;
+    text-transform: uppercase; }
 
 del {
   color: #999;
@@ -331,37 +351,59 @@ del {
 
 /**
 * 	Button style
-* 	Usage: include the mixin and define base color. Set $hover to true if you want your button to show hover effects.
+* 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
 */
 .button, button, input[type=submit] {
-  -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
   border-radius: 1em;
-  background: #f1f1f1 -moz-linear-gradient(center top, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
-  background: #f1f1f1 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.2)));
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  color: #3e3e3e;
-  font-weight: 500;
-  padding: 0 1em;
-  line-height: 1.667em;
-  text-shadow: 0 1px 1px #fff;
-  text-transform: lowercase;
+  -webkit-font-smoothing: antialiased;
   display: inline-block;
-  -webkit-transition: background-color 0.15s ease-out;
-  -moz-transition: background-color 0.15s ease-out;
-  -o-transition: background-color 0.15s ease-out;
-  transition: background-color 0.15s ease-out;
-  -webkit-box-shadow: white 0 1px 0, inset rgba(255, 255, 255, 0.7) 0 1px 1px;
-  -moz-box-shadow: white 0 1px 0, inset rgba(255, 255, 255, 0.7) 0 1px 1px;
-  box-shadow: white 0 1px 0, inset rgba(255, 255, 255, 0.7) 0 1px 1px; }
+  background-color: #eee;
+  /* Backup */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e6e6e6));
+  background-image: -moz-linear-gradient(center top, white 0%, #e6e6e6 100%);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: red;
+  text-shadow: #fff 0 1px 1px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
+  -o-box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
+  border: 1px solid #ddd;
+  font-size: 3em;
+  text-decoration: none;
+  line-height: 28px;
+  padding: 28px 0;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  -ms-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out; }
+  .button:hover, button:hover, input[type=submit]:hover {
+    -webkit-box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px;
+    -moz-box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px;
+    -o-box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px;
+    box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px; }
   .button:active, button:active, input[type=submit]:active {
-    top: auto;
-    outline: none !important;
-    background-color: #d7d7d7;
     -webkit-transition: none;
     -moz-transition: none;
     -o-transition: none;
-    transition: none; }
+    -ms-transition: none;
+    transition: none;
+    top: auto;
+    outline: none !important;
+    color: #990000;
+    -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+    -moz-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+    -o-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+    box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px; }
 
 /**
 *	MAIN STYLESHEET
@@ -378,29 +420,86 @@ body {
   /* 62.5% = 10px */
   /* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
   "CSS" – Cascading! */
-  font: normal 62.5%/1.5em"Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #000; }
+  font: normal 62.5%/28px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background-color: #fff; }
 
 /*	=LINKS
 	------------------------------------------------------ */
 a {
-  -webkit-tap-highlight-color: rgba(200, 0, 0, 0.4); }
+  -webkit-tap-highlight-color: blue;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  -ms-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out; }
 
 /*	=HEADINGS
 	------------------------------------------------------ */
 h1 {
-  font-size: 3.6em; }
+  font-size: 3.6em;
+  margin-bottom: 28px; }
 
 h2 {
   font-size: 2.4em; }
+
+h3 {
+  font-size: 2em; }
 
 /*	=HEADER
 	------------------------------------------------------ */
 /*	=FRONTPAGE
 	------------------------------------------------------ */
 /* If you you another body class than 'home', define it here */
+/*	=FORMS
+	------------------------------------------------------ */
+/* Search form */
+label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  display: block; }
+
+input[type="text"],
+textarea {
+  -webkit-font-smoothing: antialiased;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
+  -o-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 280px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border;
+  padding: 0.3em; }
+  input[type="text"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #999;
+    -webkit-box-shadow: black 0 1px 1px;
+    -moz-box-shadow: black 0 1px 1px;
+    -o-box-shadow: black 0 1px 1px;
+    box-shadow: black 0 1px 1px; }
+
+textarea {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 28px;
+  color: #000; }
+
+/* Define error styles: */
+/*	=SIDEBAR
+	------------------------------------------------------ */
+/* Global styles for sidebars */
 /*	=FOOTER
 	------------------------------------------------------ */
+footer[role="contentinfo"] p small {
+  font-size: 90%; }
+
 /*- optional vanity styles ----------*/
 ::selection {
   background: red;
@@ -420,6 +519,13 @@ img::-moz-selection {
 /*-  STYLES FOR A RESPONSIVE DESIGN
 ----------------------------------------------------------------------*/
 /* Feel free to add more media queries. These are the guys I usually use */
+@media only screen and (max-device-width: 1024px) {
+  /* Only make the text non-adjustable for iPads and iPhones. Putting
+     this in the global stylesheet will make the text non-reziable in Webkit browsers (eek!) */
+  -webkit-text-size-adjust: none; }
+
+/* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {}
 /* iPad */
 @media only screen and (max-width: 1024px) {
   section, article, aside, .block, p, h1, h2 {

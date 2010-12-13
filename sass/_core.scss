@@ -20,7 +20,7 @@ because you still might want to alter things in here.
 	src: local('Inconsolata'), url('../fonts/Inconsolata.ttf') format('truetype'), url('../fonts/Inconsolata.svg#webfont') format('svg');
 }
 
-$serif: Palatino, "Palatino Linotype", Georgia, "Times New Roman", serif;
+$serif: Georgia, "Times New Roman", serif;
 $sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $monospaced: Inconsolata, Monaco, "Courier New", Courier, monospace;
 
@@ -28,13 +28,20 @@ $monospaced: Inconsolata, Monaco, "Courier New", Courier, monospace;
 
 $accent: #f00;		// Typically for links
 $comp: green;		// Some other cool color
+$highlight: blue;	// For callouts, for example
+
+
+// Local mixins
+
 
 // Layout
 
-$page_width: 940;		// Sets the main wrapper width to 940px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
+$page_width: 980;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
 						// in library/_utils.scss as well :(
 
-$lineheight: 1.5em;		// Specifies the global lineheight. Used for a nice vertical rhythm. 
+$lineheight: 28px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
+						// ALWAYS stick this variable when adding margins, paddings, etc., and you'll see
+						// the content stick to the vertical grid (press 'B' on your keyboard to view).
 
 /*- Fluid images and objects ----------*/
 
@@ -57,27 +64,28 @@ $page_width: ($page_width / 10);
 .wrapper{
 	max-width: #{$page_width}em;
 	width: 90%;
+	height: 100%;
 	margin: 0 auto;
 	@include clearfix;
 }
 
 
-body {
-	-webkit-font-smoothing: antialiased;	/* Goodness */
-	-webkit-text-size-adjust: none;
-	
+body {	
 	&.grid{
 		/* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
 		/js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
-		to the baseline grid you're using (this one is 24px) */
+		to the baseline grid you're using (this one is 28px). I'm using http://thesquaregrid.com right now. */
 		
-		background-image: url(../images/baseline-grid.png);
+		background-image: url(../images/grid.png);
 		background-repeat: repeat;
 	}
 	
 	&.grid .wrapper{
-		/* Define path to columns.png. This one is 40-20 columns */
-		background-image: url(../images/columns.png);
+		/* Define path to the site's columns. */
+		background-image: url(../images/baseline.png);
+		background-color: rgba(255,255,255, 0.4);
+		border-left: 1px solid #999;
+		border-right: 1px solid #999;
 	}
 	
 }
@@ -87,14 +95,12 @@ body {
 ----------------------------------------------------------------------*/
 a{
 	position: relative;
+	-webkit-font-smoothing: antialiased;
 }
 
-a:active{
+a:active, a:focus{
 	outline: none;
 	top: 1px;
-}
-a:focus{
-	outline: thin dotted;
 }
 
 a em, a time, a strong, a span{
@@ -109,6 +115,7 @@ h1, h2, h3, h4, h5, h6{
 	font-weight: normal; 
 	margin-bottom: 0; 
 	line-height: 1.5; 
+	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;		/* Fix kerning */
 	
 	a{
@@ -120,12 +127,17 @@ h1, h2, h3, h4, h5, h6{
 /*- ELEMENTS
 ----------------------------------------------------------------------*/
 
-p{
-	@include font(1.3em, 1.5);		// Set global paragraph font size here
+p, ul, ol{
+	@include font(1.3em, $lineheight);		/* Set global paragraph font size here
+											Remember to set margins in article text! */
 }
 
 abbr {
 	cursor: help;
+	
+	&:hover{
+		
+	}
 }
 
 label{
@@ -136,17 +148,35 @@ time[title]{
 	font-weight: bolder;
 }
 
+hr{
+	border: 0;
+	padding: 0;
+	height: 1px;
+	background-color: #e2e2e2;
+	margin: $lineheight*2 auto ($lineheight*2) - 1;		/* Make up for the border */ 
+}
+
 pre, code{
-	font-size: 1em;
 	font-family: $monospaced;
+	line-height: $lineheight;
 }
 pre code{
 	font-size: 1.1em;
 	-webkit-font-smoothing: subpixel-antialiased;		/* Code doesn't look that good antialiased */
+	
+	&[class]:after{ 														
+		content: attr(class);							/* In code blocks, add the language to the class attribute and it'll be shown below the block */
+		display: block;									 
+		text-align: right;
+		font-size: smaller;
+		padding-top: 5px;
+		text-transform: uppercase;
+	}
 }
 
 del{
-	color: #999; border: 0;
+	color: #999; 
+	border: 0;
 }
 
 /* Used for error messages and such. */
@@ -160,35 +190,40 @@ del{
 
 /**
 * 	Button style
-* 	Usage: include the mixin and define base color. Set $hover to true if you want your button to show hover effects.
+* 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
 */
-@mixin button($basecolor: #f1f1f1, $hover: false){
-		-moz-border-radius: 1em; -webkit-border-radius: 1em; border-radius: 1em;
-		background: $basecolor -moz-linear-gradient(center top, transparent 0%, rgba(0,0,0, 0.2) 100%);
-		background: $basecolor -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0, 0.2)) );
-		border:1px solid rgba(0, 0, 0, 0.3);
-		color: darken($basecolor, 70%);
-		font-weight: 500;
-		padding: 0 1em;
-		line-height: 1.667em;
-		text-shadow: 0 1px 1px #fff;
-		text-transform: lowercase;
+@mixin button($basecolor: #fff){
+		@include border-radius(1em);
+		-webkit-font-smoothing: antialiased;
 		display: inline-block;
-		@include transition(background-color 0.15s ease-out);
-		-webkit-box-shadow: #fff 0 1px 0, inset rgba(255,255,255, 0.7) 0 1px 1px;
-		-moz-box-shadow: #fff 0 1px 0, inset rgba(255,255,255, 0.7) 0 1px 1px;
-		box-shadow: #fff 0 1px 0, inset rgba(255,255,255, 0.7) 0 1px 1px;
+		background-color: #eee;				/* Backup */
+		@include gradient($basecolor, darken($basecolor, 10%));
+		font-family: $sans;
+		font-weight: bold;
+		color: $accent;
+		text-shadow: #fff 0 1px 1px;
+		text-align: center;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+		@include box-shadow(rgba(255,255,255, 0.4) 0 0 40px);
+		border: 1px solid #ddd;
+		font-size: 3em;
+		text-decoration: none;
+		line-height: $lineheight;
+		padding: $lineheight 0;
+		@include transition(all 0.15s ease-out);
 		
-	@if($hover == true){
-		&:hover{
-			border-color: rgba(0,0,0, 0.3); color: darken($basecolor, 70%);
-			background-color: lighten($basecolor, 3%);
-		}
+	&:hover{
+		@include box-shadow(rgba(255,255,255, 0.6) 0 0 50px);
 	}
+	
 	&:active{
-		top: auto; outline: none !important;
-		background-color: darken($basecolor, 10%);
 		@include transition(none);
+		top: auto; outline: none !important;
+		color: darken($accent, 20%);
+		@include box-shadow(inset rgba(0,0,0, 0.5) 0 3px 5px);
 	}
 }
 

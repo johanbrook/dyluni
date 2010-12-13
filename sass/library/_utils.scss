@@ -7,7 +7,7 @@
 *
 */
 
-$page_width_spec: 940;
+$page_width_spec: 980;
 
 
 // A regular clearfix which can be applied directly in the CSS (no need for nasty HTML classes): "@include clearfix" on parent element.
@@ -55,6 +55,7 @@ $page_width_spec: 940;
 @mixin box-shadow($args){
 	-webkit-box-shadow: $args;
 	-moz-box-shadow: $args;
+	-o-box-shadow: $args;
 	box-shadow: $args;
 }
 
@@ -67,10 +68,12 @@ $page_width_spec: 940;
 }
 
 // Transition
+
 @mixin transition($args){
 	-webkit-transition: $args;
 	-moz-transition: $args;
 	-o-transition: $args;
+	-ms-transition: $args;
 	transition: $args;
 }
 
@@ -79,6 +82,16 @@ $page_width_spec: 940;
 @mixin gradient($from, $to){
 	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
 	background-image: -moz-linear-gradient(center top, $from 0%, $to 100%);
+}
+
+
+// Transform
+
+@mixin transform($args){
+	-webkit-transform: $args;
+	-moz-transform: $args;
+	-ms-transform: $args;
+	transform: $args;
 }
 
 // Used in responsive design, make floated elements span 100% and remove the float:
@@ -104,8 +117,8 @@ $page_width_spec: 940;
 	content: "";
 }
 
-// Instead of calculating the percentages in responsive web design, just include "column(width)".
-@mixin column($width, $property: width, $tot: $page_width_spec){
+// Instead of calculating the percentages in responsive web design, just include "fluid(width)" (or any other property as the other parameter)
+@mixin fluid($width, $property: width, $tot: $page_width_spec){
 	#{$property}: ($width/$page_width_spec)*100%;
 }
 
@@ -119,6 +132,14 @@ $page_width_spec: 940;
 	font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
 	font-size: 1.4em;
 	font-style: italic;
+}
+
+
+/* For separators */
+.sep{
+	color: #000;
+	font-size: 0.8em;
+	line-height: 28px;
 }
 
 /* Quick floating */

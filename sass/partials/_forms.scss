@@ -1,0 +1,49 @@
+/* Search form */
+
+input[type="search"]{
+	
+}
+
+
+
+label{
+	font-family: $sans;
+	font-weight: bold;
+	font-size: 0.9em;
+	cursor: pointer;
+	display: block;
+}
+
+input[type="text"],
+textarea{
+	// Uncomment if you want Safari to apply native OS controls
+	//-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+	border: 1px solid #aaa;
+	@include box-shadow(rgba(0,0,0, 0.7) 0 1px 1px);
+	@include border-radius(3px);
+	width: $lineheight*10;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border;
+	padding: 0.3em;
+	
+	&:focus{
+		outline: none;
+		border-color: #999;
+		@include box-shadow(#000 0 1px 1px);
+	}
+}
+
+textarea{
+	font-family: $serif;
+	line-height: $lineheight;
+	color: #000;
+}
+
+
+/* Define error styles: */
+
+
+
+
