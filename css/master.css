@@ -17,7 +17,7 @@
 /*
 * Non-semantic helper classes
 */
-/* Nicer ampersand */ 
+/* Nicer ampersand */
 .amp {
   font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
   font-size: 1.4em;
@@ -260,18 +260,20 @@ img, object, embed {
   .wrapper {
     display: block; }
 
-body.grid {
-  /* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
-  /js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
-  to the baseline grid you're using (this one is 28px). I'm using http://thesquaregrid.com right now. */
-  background-image: url(../images/grid.png);
-  background-repeat: repeat; }
-body.grid .wrapper {
-  /* Define path to the site's columns. */
-  background-image: url(../images/baseline.png);
-  background-color: rgba(255, 255, 255, 0.4);
-  border-left: 1px solid #999;
-  border-right: 1px solid #999; }
+body {
+  -webkit-text-size-adjust: 100%; }
+  body.grid {
+    /* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
+    /js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
+    to the baseline grid you're using (this one is 28px). I'm using http://thesquaregrid.com right now. */
+    background-image: url(../images/grid.png);
+    background-repeat: repeat; }
+  body.grid .wrapper {
+    /* Define path to the site's columns. */
+    background-image: url(../images/baseline.png);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-left: 1px solid #999;
+    border-right: 1px solid #999; }
 
 /*- LINKS
 ----------------------------------------------------------------------*/
@@ -519,11 +521,6 @@ img::-moz-selection {
 /*-  STYLES FOR A RESPONSIVE DESIGN
 ----------------------------------------------------------------------*/
 /* Feel free to add more media queries. These are the guys I usually use */
-@media only screen and (max-device-width: 1024px) {
-  /* Only make the text non-adjustable for iPads and iPhones. Putting
-     this in the global stylesheet will make the text non-reziable in Webkit browsers (eek!) */
-  -webkit-text-size-adjust: none; }
-
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {}
 /* iPad */
