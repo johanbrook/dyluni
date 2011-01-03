@@ -80,78 +80,59 @@
 /**
 *	The compulsory reset file. It's the HTML5 one (duh .. ) with some modifications.
 */
-/* 
-html5doctor.com Reset Stylesheet
-Version: 1.4 
-Date: 2009-07-27 (modified 2010-12-13)
-Author: Richard Clark - http://richclarkdesign.com. Modified by Johan Brook - http://johanbrook.com
-*/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0b1 | 201101 . Modified by Johan 2011-01-03 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+  position: relative; }
+
+/* Enable absolute positioned elements inside these ones: */
+div, a, p, ul, li {
+  position: relative; }
 
 body {
   line-height: 1; }
 
-article, aside, dialog, figure, footer, header, hgroup, nav, section {
-  display: block; }
-
-ul {
+ol, ul {
   list-style: none; }
 
-/* Define list styles where appropriate */
 blockquote, q {
   quotes: none; }
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
   content: '';
   content: none; }
-
-a {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
-
-ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none; }
-
-mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold; }
-
-del {
-  text-decoration: line-through; }
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted #000;
-  cursor: help; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
 
 hr {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid #cccccc;
-  margin: 1em 0;
+  margin: 28px 0 27px;
   padding: 0; }
-
-input, select {
-  vertical-align: middle; }
 
 label, a img {
   cursor: pointer; }
@@ -165,16 +146,24 @@ em {
 small {
   font-size: 85%; }
 
-a img {
-  border: 0;
-  display: block; }
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #888;
+  cursor: help; }
 
-div, a, p, ul, li, header, section, nav, aside, article {
-  position: relative; }
+/* remember to define visible focus styles! 
+:focus {
+	outline: ?????;
+} */
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none; }
 
-/* Enable customized scrollbars in Webkit. Remember 'position: absolute' in body selector, and maybe 'right: 10px'. */
-html {
-  overflow: auto; }
+del {
+  text-decoration: line-through; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
 input[type="radio"] {
   vertical-align: text-bottom; }
