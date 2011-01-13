@@ -356,19 +356,12 @@ del {
   background-image: -moz-linear-gradient(center top, white 0%, #e6e6e6 100%);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  color: red;
   text-shadow: #fff 0 1px 1px;
   text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
-  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
-  -o-box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
-  box-shadow: rgba(255, 255, 255, 0.4) 0 0 40px;
-  border: 1px solid #ddd;
-  font-size: 3em;
   text-decoration: none;
   line-height: 28px;
   padding: 28px 0;
@@ -377,11 +370,6 @@ del {
   -o-transition: all 0.15s ease-out;
   -ms-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out; }
-  .button:hover, button:hover, input[type=submit]:hover {
-    -webkit-box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px;
-    -moz-box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px;
-    -o-box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px;
-    box-shadow: rgba(255, 255, 255, 0.6) 0 0 50px; }
   .button:active, button:active, input[type=submit]:active {
     -webkit-transition: none;
     -moz-transition: none;
@@ -390,7 +378,6 @@ del {
     transition: none;
     top: auto;
     outline: none !important;
-    color: #990000;
     -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
     -moz-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
     -o-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
