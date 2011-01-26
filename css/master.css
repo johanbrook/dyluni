@@ -220,6 +220,71 @@ because you still might want to alter things in here.
   src: url("../fonts/Inconsolata.eot");
   src: local("Inconsolata"), url("../fonts/Inconsolata.ttf") format("truetype"), url("../fonts/Inconsolata.svg#webfont") format("svg"); }
 
+/**
+*	Main grid container
+*/
+#grid {
+  /* Dimensions - same width as your grid with gutters (980px) */
+  width: 1036px;
+  /* Grid (left-aligned)
+  position: absolute;
+  top: 0;
+  left: 0;
+  */
+  /* Grid (centered) */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -518px;
+  z-index: 999; }
+
+/**
+ * Vertical grid lines
+ *
+ * Set the column width taking the borders into consideration,
+ * and use margins to set column gutters.
+ */
+#grid div.vert {
+  width: 139px;
+  border: solid darkturquoise;
+  border-width: 0 1px;
+  margin-right: 27px; }
+
+#grid div.vert.first-line {
+  margin-left: 27px; }
+
+/**
+ * Horizontal grid lines, defined by your base line height
+ *
+ * Remember, the CSS properties that define the box model:
+ * visible height = height + borders + margins + padding
+ */
+#grid div.horiz {
+  /* 20px line height */
+  height: 27px;
+  border-bottom: 1px dotted darkgray;
+  margin: 0;
+  padding: 0; }
+
+/**
+* Classes for multiple grids
+*
+* When using more than one grid, remember to set the numberOfGrids 
+* option in the hashgrid.js file.
+*/
+#grid.grid-1 div.vert {
+  /* Vertical grid line colour for grid 1 */
+  border-color: darkturquoise; }
+
+#grid.grid-2 {
+  /* Adjustments */
+  padding: 0 160px;
+  width: 660px; }
+
+#grid.grid-2 div.vert {
+  /* Vertical grid line colour for grid 2 */
+  border-color: crimson; }
+
 /*- Fluid images and objects ----------*/
 img, object, embed {
   max-width: 100%;
@@ -227,43 +292,6 @@ img, object, embed {
 
 /*- GLOBAL
 ----------------------------------------------------------------------*/
-/*
- This inner element makes centers the page and acts like a wrapper for the fluid elements.
-*/
-.wrapper {
-  max-width: 98em;
-  width: 90%;
-  height: 100%;
-  margin: 0 auto; }
-  .wrapper:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0; }
-  .wrapper {
-    display: inline-block; }
-  * html .wrapper {
-    height: 1%; }
-  .wrapper {
-    display: block; }
-
-body {
-  -webkit-text-size-adjust: 100%; }
-  body.grid {
-    /* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
-    /js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
-    to the baseline grid you're using (this one is 28px). I'm using http://thesquaregrid.com right now. */
-    background-image: url(../images/grid.png);
-    background-repeat: repeat; }
-  body.grid .wrapper {
-    /* Define path to the site's columns. */
-    background-image: url(../images/baseline.png);
-    background-color: rgba(255, 255, 255, 0.4);
-    border-left: 1px solid #999;
-    border-right: 1px solid #999; }
-
 /*- LINKS
 ----------------------------------------------------------------------*/
 a {
@@ -274,15 +302,11 @@ a:active, a:focus {
   outline: none;
   top: 1px; }
 
-a em, a time, a strong, a span {
-  cursor: pointer; }
-
 /* =HEADINGS */
 /*-----------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin-bottom: 0;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   /* Fix kerning */ }
@@ -297,9 +321,6 @@ p, ul, ol {
 
 abbr {
   cursor: help; }
-
-label {
-  font-weight: bold; }
 
 time[title] {
   font-weight: bolder; }
@@ -320,14 +341,6 @@ pre code {
   font-size: 1.1em;
   -webkit-font-smoothing: subpixel-antialiased;
   /* Code doesn't look that good antialiased */ }
-  pre code[class]:after {
-    content: attr(class);
-    /* In code blocks, add the language to the class attribute and it'll be shown below the block */
-    display: block;
-    text-align: right;
-    font-size: smaller;
-    padding-top: 5px;
-    text-transform: uppercase; }
 
 del {
   color: #999;
@@ -345,31 +358,22 @@ del {
 * 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
 */
 .button, button, input[type=submit] {
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  border-radius: 1em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
-  background-color: #eee;
+  background-color: white;
   /* Backup */
   background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e6e6e6));
   background-image: -moz-linear-gradient(center top, white 0%, #e6e6e6 100%);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-shadow: #fff 0 1px 1px;
   text-align: center;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
   text-decoration: none;
   line-height: 28px;
-  padding: 28px 0;
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  -o-transition: all 0.15s ease-out;
-  -ms-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out; }
+  padding: 0.3em 0.5em;
+  font-size: 1.3em; }
   .button:active, button:active, input[type=submit]:active {
     -webkit-transition: none;
     -moz-transition: none;
@@ -405,7 +409,7 @@ body {
 /*	=LINKS
 	------------------------------------------------------ */
 a {
-  -webkit-tap-highlight-color: blue;
+  -webkit-tap-highlight-color: yellow;
   -webkit-transition: color 0.2s ease-out;
   -moz-transition: color 0.2s ease-out;
   -o-transition: color 0.2s ease-out;
@@ -415,8 +419,9 @@ a {
 /*	=HEADINGS
 	------------------------------------------------------ */
 h1 {
-  font-size: 3.6em;
-  margin-bottom: 28px; }
+  font-size: 4em;
+  margin-bottom: 28px;
+  line-height: 56px; }
 
 h2 {
   font-size: 2.4em; }
@@ -435,39 +440,49 @@ h3 {
 label {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 0.9em;
+  font-size: 1em;
   cursor: pointer;
   display: block; }
 
 input[type="text"],
+input[type="email"],
+input[type="url"],
+input.text,
 textarea {
+  -webkit-appearance: none;
   -webkit-font-smoothing: antialiased;
   border: 1px solid #aaa;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
-  -o-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
-  box-shadow: rgba(0, 0, 0, 0.7) 0 1px 1px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  border-radius: 3px;
-  width: 280px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border;
-  padding: 0.3em; }
+  -ms-border-radius: 3px;
+  border-radius: 3px; }
   input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input.text:focus,
   textarea:focus {
     outline: none;
-    border-color: #999;
-    -webkit-box-shadow: black 0 1px 1px;
-    -moz-box-shadow: black 0 1px 1px;
-    -o-box-shadow: black 0 1px 1px;
-    box-shadow: black 0 1px 1px; }
+    border-color: #999; }
+  input[type="text"]::-webkit-input-placeholder,
+  input[type="email"]::-webkit-input-placeholder,
+  input[type="url"]::-webkit-input-placeholder,
+  input.text::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.9em; }
+  input[type="text"]:-moz-placeholder,
+  input[type="email"]:-moz-placeholder,
+  input[type="url"]:-moz-placeholder,
+  input.text:-moz-placeholder,
+  textarea:-moz-placeholder {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.9em; }
 
 textarea {
-  font-family: Georgia, "Times New Roman", serif;
   line-height: 28px;
-  color: #000; }
+  color: #000;
+  resize: vertical;
+  -moz-resize: vertical; }
 
 /* Define error styles: */
 /*	=SIDEBAR
@@ -475,16 +490,18 @@ textarea {
 /* Global styles for sidebars */
 /*	=FOOTER
 	------------------------------------------------------ */
-footer[role="contentinfo"] p small {
-  font-size: 90%; }
+footer[role="contentinfo"] {
+  clear: both; }
+  footer[role="contentinfo"] p small {
+    font-size: 90%; }
 
 /*- optional vanity styles ----------*/
 ::selection {
-  background: red;
+  background: yellow;
   color: #000; }
 
 ::-moz-selection {
-  background: red;
+  background: yellow;
   color: #000; }
 
 img::selection {
@@ -498,15 +515,22 @@ img::-moz-selection {
 ----------------------------------------------------------------------*/
 /* Feel free to add more media queries. These are the guys I usually use */
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {}
-/* iPad */
-@media only screen and (max-width: 1024px) {
-  section, article, aside, .block, p, h1, h2 {
-    float: none !important;
-    width: 100% !important; } }
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-pixel-ratio: 2) {}
+@media only screen and (max-width: 1036px) and (min-width: 768px) {
+  body {
+    width: 644px; } }
+
+@media only screen and (max-width: 767px) and (min-width: 481px) {
+  body {
+    width: 476px;
+    -webkit-text-size-adjust: 100%; } }
 
 /* iPhone and other smartphones */
-@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 480px) {
+  body {
+    width: 308px;
+    -webkit-text-size-adjust: 100%; } }
+
 /*-  Print
 ----------------------------------------------------------------------*/
 @media print {
