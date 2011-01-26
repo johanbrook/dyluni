@@ -5,23 +5,36 @@
 
 
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
-@media only screen and (-webkit-min-device-pixel-ratio: 2){
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-pixel-ratio: 2){
 	
 }
 
-/* iPad */
 
-@media only screen and (max-width: 1024px) {
-	
-	section, article, aside, .block, p, h1, h2{
-		@include block;
+
+
+
+@media only screen and (max-width: 1036px) and (min-width: 768px) {
+		
+	body{
+		width: $column*4 + ($lineheight*3);  
 	}
 
+}
+
+
+@media only screen and (max-width: 767px) and (min-width: 481px){
+	body{
+		width: $column*3 + $lineheight*2;
+		-webkit-text-size-adjust: 100%;
+	}
 }
 
 
 /* iPhone and other smartphones */
 
 @media only screen and (max-width: 480px) {
-	
+	body{
+		width: $column*2 + $lineheight;
+		-webkit-text-size-adjust: 100%;
+	}
 }
