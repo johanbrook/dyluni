@@ -36,8 +36,9 @@ a:hover, a:focus{
 	------------------------------------------------------ */	
 	
 h1{
-	font-size: 3.6em;
+	font-size: 4em;
 	margin-bottom: $lineheight;
+	line-height: $lineheight*2;
 }
 
 h2{
@@ -75,8 +76,8 @@ h3{
 
 /*- optional vanity styles ----------*/
 
-::selection {background: $accent; color: #000;}
-::-moz-selection {background: $accent; color: #000;}
+::selection {background: $highlight; color: #000;}
+::-moz-selection {background: $highlight; color: #000;}
 
 img::selection {background: transparent;}
 img::-moz-selection {background: transparent;}

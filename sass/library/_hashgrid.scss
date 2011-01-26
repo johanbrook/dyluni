@@ -1,10 +1,11 @@
-
 /**
- * Grid
- */
+*	Main grid container
+*/
+
+
 #grid{
 
-    /* Dimensions - same width as your grid with gutters */
+    /* Dimensions - same width as your grid with gutters (980px) */
     width: $page_width + $lineheight*2;
 
     /* Grid (left-aligned)

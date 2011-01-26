@@ -20,15 +20,15 @@ because you still might want to alter things in here.
 	src: local('Inconsolata'), url('../fonts/Inconsolata.ttf') format('truetype'), url('../fonts/Inconsolata.svg#webfont') format('svg');
 }
 
-$serif: Georgia, "Times New Roman", serif;
-$sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$monospaced: Inconsolata, Monaco, "Courier New", Courier, monospace;
+$serif: 		Georgia, "Times New Roman", serif;
+$sans: 			"Helvetica Neue", Helvetica, Arial, sans-serif;
+$monospaced: 	Inconsolata, Monaco, "Courier New", Courier, monospace;
 
 // Colors
 
-$accent: #f00;		// Typically for links
-$comp: green;		// Some other cool color
-$highlight: blue;	// For callouts, for example
+$accent: 		#f00;		// Typically for links
+$comp: 			green;		// Some other cool color
+$highlight: 	yellow;		// For callouts, for example
 
 
 // Local mixins
@@ -36,16 +36,18 @@ $highlight: blue;	// For callouts, for example
 
 // Layout
 
-$page_width: 980px;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
-						// in library/_utils.scss as well :(
+$page_width: 	980px;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
+							// in library/_utils.scss as well :(
 
-$lineheight: 28px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
-						// ALWAYS stick this variable when adding margins, paddings, etc., and you'll see
-						// the content stick to the vertical grid (press 'B' on your keyboard to view).
+$lineheight: 	28px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
+							// ALWAYS stick this variable when adding margins, paddings, etc., and you'll see
+							// the content stick to the vertical grid (press 'B' on your keyboard to view).
 
-$column: $lineheight*5; // Set up the column width. 5 single columns make a 140px wide column, which makes a 6 column grid.
+							// Set up the column width. 5 single columns make a 140px wide column, which makes a 6 column grid.
+$column:		$lineheight*5; 
 
-// Import CSS rules for Hashgrid (http://hashgrid.com)
+							
+							// Import CSS rules for Hashgrid (http://hashgrid.com)
 
 @import "library/_hashgrid";
 
@@ -63,41 +65,8 @@ img, object, embed {
 
 /*- GLOBAL
 ----------------------------------------------------------------------*/
-/*
- This inner element makes centers the page and acts like a wrapper for the fluid elements.
-*/
-$page_width: ($page_width / 10);
-
-.wrapper{
-	max-width: #{$page_width}em;
-	width: 90%;
-	height: 100%;
-	margin: 0 auto;
-	@include clearfix;
-}
 
 
-body {	
-	
-	 
-	&.grid{
-		/* Define path to this tiny .png with the baseline grid. See example in images folder. The Javascript in the
-		/js folder will map the 'B' key to show the grid. I encourage you to create your own baseline .png according
-		to the baseline grid you're using (this one is 28px). I'm using http://thesquaregrid.com right now. */
-		
-		background-image: url(../images/grid.png);
-		background-repeat: repeat;
-	}
-	
-	&.grid .wrapper{
-		/* Define path to the site's columns. */
-		background-image: url(../images/baseline.png);
-		background-color: rgba(255,255,255, 0.4);
-		border-left: 1px solid #999;
-		border-right: 1px solid #999;
-	}
-	
-}
 
 
 /*- LINKS
@@ -112,9 +81,6 @@ a:active, a:focus{
 	top: 1px;
 }
 
-a em, a time, a strong, a span{
-	cursor: pointer;
-}
 
 
 /* =HEADINGS */
@@ -123,7 +89,6 @@ a em, a time, a strong, a span{
 h1, h2, h3, h4, h5, h6{
 	font-weight: normal; 
 	margin-bottom: 0; 
-	line-height: 1.5; 
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;		/* Fix kerning */
 	
@@ -149,9 +114,6 @@ abbr {
 	}
 }
 
-label{
-	font-weight: bold;
-}
 
 time[title]{
 	font-weight: bolder;
@@ -172,15 +134,6 @@ pre, code{
 pre code{
 	font-size: 1.1em;
 	-webkit-font-smoothing: subpixel-antialiased;		/* Code doesn't look that good antialiased */
-	
-	&[class]:after{ 														
-		content: attr(class);							/* In code blocks, add the language to the class attribute and it'll be shown below the block */
-		display: block;									 
-		text-align: right;
-		font-size: smaller;
-		padding-top: 5px;
-		text-transform: uppercase;
-	}
 }
 
 del{
@@ -202,23 +155,17 @@ del{
 * 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
 */
 @mixin button($basecolor: #fff){
-		@include border-radius(1em);
+		@include border-radius(3px);
 		-webkit-font-smoothing: antialiased;
 		display: inline-block;
-		background-color: #eee;				/* Backup */
+		background-color: $basecolor;				/* Backup */
 		@include gradient($basecolor, darken($basecolor, 10%));
 		font-family: $sans;
-		font-weight: bold;
-		text-shadow: #fff 0 1px 1px;
 		text-align: center;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		-ms-box-sizing: border-box;
-		box-sizing: border-box;
 		text-decoration: none;
 		line-height: $lineheight;
-		padding: $lineheight 0;
-		@include transition(all 0.15s ease-out);
+		padding: 0.3em 0.5em;
+		font-size: 1.3em;
 		
 	&:hover{
 

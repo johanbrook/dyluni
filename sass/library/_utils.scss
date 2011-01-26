@@ -32,7 +32,9 @@ $page_width_spec: 980;
 	-moz-column-count: $count; -moz-column-gap: 1.5em;
 	column-count: $count; column-gap: 1.5em;
 	
-	& > p{
+	& > p,
+	& > ul,
+	& > ol{
 		position: static;		// Boy, it took me long time to figure this out.
 	}
 }
@@ -64,6 +66,7 @@ $page_width_spec: 980;
 @mixin border-radius($args){
 	-webkit-border-radius: $args;
 	-moz-border-radius: $args;
+	-ms-border-radius: $args;
 	border-radius: $args;
 }
 
@@ -111,7 +114,7 @@ $page_width_spec: 980;
 
 @mixin hover($dir: bottom){
 	&:hover{
-		background-position-y: #{$dir} !important;
+		background-position-y: #{$dir};
 	}
 }
 
