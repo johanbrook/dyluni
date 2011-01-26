@@ -4,17 +4,15 @@
 */
 
 $(function($){
+	
+	// Hide the address bar on iPhone
 	setTimeout(function(){
 		window.scrollTo(0, 1);
 	}, 100);
 	
-	// Keyboard shortcuts	
-	$(document).bind("keypress", function(evt){
-		switch(evt.which){
-			case 98: $("body").toggleClass("grid");
-					break;
-		}
-	});
+	
+	// Make a new grid overlay. See js/jquery.hashgrid.js for additional options
+	var grid = new hashgrid();
 	
 	// Set up smooth scrolling to text anchors
 	$("a").smoothScroll();

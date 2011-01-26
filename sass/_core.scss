@@ -36,12 +36,19 @@ $highlight: blue;	// For callouts, for example
 
 // Layout
 
-$page_width: 980;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
+$page_width: 980px;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
 						// in library/_utils.scss as well :(
 
 $lineheight: 28px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
 						// ALWAYS stick this variable when adding margins, paddings, etc., and you'll see
 						// the content stick to the vertical grid (press 'B' on your keyboard to view).
+
+$column: $lineheight*5; // Set up the column width. 5 single columns make a 140px wide column, which makes a 6 column grid.
+
+// Import CSS rules for Hashgrid (http://hashgrid.com)
+
+@import "library/_hashgrid";
+
 
 /*- Fluid images and objects ----------*/
 
