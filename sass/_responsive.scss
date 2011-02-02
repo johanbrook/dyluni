@@ -12,19 +12,26 @@
 
 
 
+/* Target iPad sized tablets and smaller desktop screens. */
 
 @media only screen and (max-width: 1036px) and (min-width: 768px) {
 		
 	body{
-		width: $column*4 + ($lineheight*3);  
+		@include column(4, false);
 	}
 
 }
 
 
-@media only screen and (max-width: 767px) and (min-width: 481px){
+/* Larger smartphones or other small web views. 
+	
+	Please note that these styles will be inherited down to the iPhone/smartphone media query (there's no min-width property you see). That
+	is because these to media queries tend to be very much alike, and it's tedious to have to write the same styles twice.
+*/
+
+@media only screen and (max-width: 767px) {
 	body{
-		width: $column*3 + $lineheight*2;
+		@include column(3, false);
 		-webkit-text-size-adjust: 100%;
 	}
 }
@@ -34,7 +41,7 @@
 
 @media only screen and (max-width: 480px) {
 	body{
-		width: $column*2 + $lineheight;
+		@include column(2, false);
 		-webkit-text-size-adjust: 100%;
 	}
 }

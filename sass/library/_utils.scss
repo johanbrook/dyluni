@@ -155,12 +155,14 @@ $page_width_spec: 980;
 @mixin column($number: 1, $margin: true){
 	width: $column*$number + ($lineheight * ($number - 1));
 	@if($margin == true){
-	margin-right: $lineheight;
+		margin-right: $lineheight;
+	
+		&:last-child{
+			margin-right: 0;
+		}
+	
 	}
 	
-	&:last-child{
-		margin-right: 0;
-	}
 }
 
 

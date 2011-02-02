@@ -20,15 +20,13 @@ When you first clone or download the framework you'll see this folder structure:
 	README.md
 	sass/
 
-It's the `index.html` and the `sass` folder who are most important. In those I do the most work. Don't worry about the `css` folder, since it's only CSS generated from the Sass files. However, there are some patches for Internet Explorer in pure CSS in there, which could be interesting later on.
+The index.html and sass folder are the interesting guys. Don't worry about the `css` folder since it's only CSS generated from the Sass files. However, there are some patches for Internet Explorer in pure CSS in there, which could be interesting later on.
 
-Just drop this structure into a new project folder, or implement it with your CMS or server framework of choice. If you're using Compass in Rails, the Sass files will live inside the `app/stylesheets/` directory. In this case `master.scss` is compiled into `master.css` in the `public/stylesheets/compiled/` directory. 
+Just drop this structure into a new project folder, or implement it with your CMS or server framework of choice. If you're using Compass or some Sass plugin in Rails, the Sass files will live inside the `app/stylesheets/` directory. In this case `master.scss` is compiled into `master.css` in the `public/stylesheets/compiled/` directory. 
 
 ### Compiling Sass
 
-For a crash course in Sass, head over to [the project's website](http://sass-lang.com/tutorial.html). Basically it's not that hard at all to get started with it. By assuming you have Ruby installed (pre-installed in OS X) you just head into a terminal window and type:
-
-	gem install haml
+For a crash course in Sass, head over to [the project's website](http://sass-lang.com/tutorial.html).
 
 That'll give you [Haml](http://haml-lang.com/) and Sass. So, from now on you can forget regular CSS files. We'll now work with the `.scss` extension. Sass is really just an extension of CSS, so every CSS file is a valid SCSS file. You write styles in `.scss` files and then compile them into `.css` files (which you don't have to touch after compiling them). When I begin my work session I start with typing this in a terminal window:
 
@@ -57,10 +55,27 @@ In here we've got the goodness. `master.scss` is the master (duh) file which is 
 - `library/`
 	- `_reset.scss` is a HTML5 reset with some extra stuff by me.
 	- `_utils.scss` includes some Sass mixins and helper classes. You shouldn't have to touch it, unless you want to add mixins or code for reuse. I usually keep site specific mixins in `_main.scss`.
+	- `_hashgrid.scss` is the "config" file for [Hashgrid](http://hashgrid.com) which I use to align the design to a grid. Dyluni is based on a 980px wide, six column responsive grid. If you do any major changes in width of the body container, you may adjust stuff in this file. As you can see, I've used Sass variables to keep things in order.
 - `master.scss` is where all other files are imported into.
 - `partials/`
-	- `_footer.scss, _header.scss, _frontpage.scss ..` is where you can separate your Sass into individual files, which makes the development easier. Instead of scanning through a huge `_main.scss` you can divide them into logical sections. I usually use too many partials over too few. But mind the amount – you don't want to make them too bloated!
+	- `_footer.scss, _header.scss, _frontpage.scss ..` is where you can separate your Sass into individual files, which makes the development easier. Instead of scanning through a huge `_main.scss` you can divide them into logical sections. I usually use too many partials over too few.
+	
+### Responsive styles
+
+I've included a couple of media queries (in `_responsive.scss`) where you may customize the appearance to the viewport. It's also maintaining the grid all the way down (six columns, four columns, three columns, two columns). Play around with it and be amazed.
+
+### Hashgrid
+
+I replaced my own hacky solution of viewing the baseline and vertical grid on the page with the mature [Hashgrid](http://hashgrid.com). It's built by typographic masters and even provides the functionality of creating several grids. I often create one grid for each media query (not included in Dyluni) to make everything add up. Please see the Hashgrid documentation for fine tuning.
+
+
+### Javascript
+
+I've kept the JS to a minimum since I'm not that fond of using scripts to enhance too much of a site. jQuery is of course included, as well as a smoothscroll script when navigating with text anchors (I think it's great UX). The general setup and dump file is `js/dyluni.js`.
+
 
 ## Outro
 
-Dyluni is based on the HTML5 Boilerplate project, but with some extra stuff added by me, and of course powered by Sass. Feel free to fork or get in touch with me [here](http://johanbrook.com/about/contact "Contact"). 
+Dyluni is based on the HTML5 Boilerplate project (especially the HTML markup), but with some extra stuff added by me, and of course powered by Sass. Feel free to fork or get in touch with me [here](http://johanbrook.com "Contact"). 
+
+I plan on constantly updating Dyluni according to current best practices, and I once again happily recieve suggestions and contributions.
