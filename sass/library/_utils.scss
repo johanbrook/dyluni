@@ -61,6 +61,18 @@ $page_width_spec: 980;
 	box-shadow: $args;
 }
 
+
+// Box sizing
+// @include box-sizing(padding || border || content)
+
+@mixin box-sizing($type: border) {
+	-webkit-box-sizing: #{$type}-box;
+	-moz-box-sizing: #{$type}-box;
+	-ms-box-sizing: #{$type}-box;
+	box-sizing: #{$type}-box;
+}
+
+
 // Border radius
 
 @mixin border-radius($args){
@@ -130,8 +142,25 @@ $page_width_spec: 980;
 }
 
 // Instead of calculating the percentages in responsive web design, just include "fluid(width)" (or any other property as the other parameter)
+
 @mixin fluid($width, $property: width, $tot: $page_width_spec){
 	#{$property}: ($width/$page_width_spec)*100%;
+}
+
+
+// Handy when working with grid systems (which you always should).
+// When specyfing a width, just @include column(<number of columns>) and you're all set (as you can see, the mixin takes care of the
+// gutters and margins). Set the margin parameter to false to omitt them.
+ 
+@mixin column($number: 1, $margin: true){
+	width: $column*$number + ($lineheight * ($number - 1));
+	@if($margin == true){
+	margin-right: $lineheight;
+	}
+	
+	&:last-child{
+		margin-right: 0;
+	}
 }
 
 
