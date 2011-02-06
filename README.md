@@ -79,3 +79,5 @@ I've kept the JS to a minimum since I'm not that fond of using scripts to enhanc
 Dyluni is based on the HTML5 Boilerplate project (especially the HTML markup), but with some extra stuff added by me, and of course powered by Sass. Feel free to fork or get in touch with me [here](http://johanbrook.com "Contact"). 
 
 I plan on constantly updating Dyluni according to current best practices, and I once again happily recieve suggestions and contributions.
+
+I'm also sharing my [Textmate theme with support for Sass syntax highlighting](https://github.com/johanbrook/dyluni-textmate-theme).
