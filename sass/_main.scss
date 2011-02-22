@@ -78,8 +78,8 @@ h3{
 
 /*- optional vanity styles ----------*/
 
-::selection {background: $highlight; color: #000;}
-::-moz-selection {background: $highlight; color: #000;}
+::selection {background: $highlight; color: #000; text-shadow: none;}
+::-moz-selection {background: $highlight; color: #000; text-shadow: none;}
 
 img::selection {background: transparent;}
 img::-moz-selection {background: transparent;}
