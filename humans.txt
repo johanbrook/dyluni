@@ -1,0 +1,32 @@
+
+	<SITE NAME>
+	
+	==========================
+	
+	PROJECT LEAD
+	John Doe
+	http://johndoe.com
+	@johndoe
+	
+	DESIGNER
+	John Smith
+	http://johnsmith.org
+	@johnny
+	
+	DEVELOPER
+	Jane Doe
+	http://janedoe.se
+	@janey
+	
+	
+	
+	Date: 2011-02-23
+	Client: Intergalactic Space Empire
+	
+	TECHNOLOGIES
+	- Built with Wordpress
+	- Developed with HTML5, CSS3, jQuery, Sass
+	- Made on a Mac with Textmate, Safari, Photoshop ...
+	
+	
+	<and more author info if you'd like to>
