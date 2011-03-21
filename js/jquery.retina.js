@@ -12,8 +12,8 @@
 
 (function( $ ){
 	$.fn.retina = function(retina_part) {
-		// Set default retina file part to '-2x'
-		// Eg. some_image.jpg will become some_image-2x.jpg
+		// Set default retina file part to '@2x'
+		// Eg. some_image.jpg will become some_image@2x.jpg
 		var settings = {'retina_part': '@2x'};
 		if(retina_part) jQuery.extend(settings, { 'retina_part': retina_part });
 

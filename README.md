@@ -107,9 +107,21 @@ In the utils file global mixin definition live, such as cross-browser box-shadow
 
 Since the `@import` rule of Sass makes it easy to organize your project without having to maintain several CSS files which have to be referred from the HTML, you should branch out your project in these directories. Simply put header styles in `_header.scss` and styles for the front page in `_frontpage.scss` etc. It's great for maintenance as well as namespacing.
 
-### Javascript
+## Javascript
 
-I've kept the JS to a minimum since I'm not that fond of using scripts to enhance too much of a site. jQuery is of course included, as well as a smoothscroll script when navigating with text anchors (I think it's great UX). The general setup and dump file is `js/dyluni.js`.
+I've kept the JS to a minimum since I'm not that fond of using scripts to enhance too much of a site. jQuery (1.5.1) is included, as well as a smoothscroll script when navigating with text anchors (I think it's great UX).
+
+The general setup and dump file is `dyluni.js`. `jquery.hashgrid.js` is included for showing the site grid. I've chosen not to link the HTML5 shiv from Google Code, since it's quite vital for IE6-8 when styling HTML5 elements. Imagine if something would happen to the Google hosted repository! Instead I'm using a local html5.js file instead.
+
+There's also a `jquery.retina.js` file for dynamically showing high-res photos when your site is viewed on an iPhone 4.
+
+Usage:
+
+	$(document).ready(function() {
+		$('img.retina').retina();
+	});
+
+More on the [Github repo](https://github.com/mcilvena/jQuery-Retina-Display-Plugin). Note that you have to include jquery.retina.js in the HTML file yourself. You may specify high-res background CSS images in the `_responsive.scss` file.
 
 
 ## Grid
@@ -132,6 +144,8 @@ This will maintain the grid throughout the design. Also use this technique in th
 	}
 
 Always keep an eye on the line-heights. By default, Dyluni has a 28px line-height applied to the body element.
+
+When resizing the browser window or viewing on a small-screen device, the body element will adjust its width with help from responsive design (see `_responsive.scss`) down to a four, three and two column grid. Try it out yourself.
 
 
 ## Outro
