@@ -95,7 +95,7 @@ Please note that the styles for larger smartphone screens will be inherited down
 
 I replaced my own hacky solution of viewing the baseline and vertical grid on the page with the mature [Hashgrid](http://hashgrid.com). It's built by typographic masters and even provides the functionality of creating several grids. I often create one grid for each media query (not included by default in Dyluni) to make everything add up. Please see the Hashgrid documentation for fine tuning. 
 
-To view the grid, open up `index.html` and simply press and hold **'G'** on your keyboard. Dyluni is built by default with a six column 980px wide grid, which you'll see when viewing for the first time.
+To view the grid, open up `index.html` and simply press and hold **'G'** on your keyboard. Dyluni is built by default with a six column 980px wide grid, which you'll see when viewing for the first time. Hit 'J' to cycle through all grids. I've added a second, 28px grid as well.
 
 ### `_reset.scss` and `_utils.scss`
 
