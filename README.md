@@ -45,7 +45,7 @@ Now you'll get nice and compressed CSS.
 
 The main HTML file provides a basic setup for a new site. There are essential stuff in the `<head>` as well as a nice site structure. 
 	
-## SCSS
+## Sass
 
 In here we've got the goodness. `master.scss` is the master (duh) file which is generated into `master.css` – the only CSS file `index.html` imports. The power of Sass makes it possible to import partials, prefixed with an underscore in the filename, without having the server to make requests. 
 
@@ -107,10 +107,31 @@ In the utils file global mixin definition live, such as cross-browser box-shadow
 
 Since the `@import` rule of Sass makes it easy to organize your project without having to maintain several CSS files which have to be referred from the HTML, you should branch out your project in these directories. Simply put header styles in `_header.scss` and styles for the front page in `_frontpage.scss` etc. It's great for maintenance as well as namespacing.
 
-
 ### Javascript
 
 I've kept the JS to a minimum since I'm not that fond of using scripts to enhance too much of a site. jQuery is of course included, as well as a smoothscroll script when navigating with text anchors (I think it's great UX). The general setup and dump file is `js/dyluni.js`.
+
+
+## Grid
+
+I use the [Square Grid](http://thesquaregrid.com/) as a starting point for all my projects, including this one. It's a 980px wide 35 column flexible grid. Therefore you'll find that most dimensions are based on the number 28 (each column in the grid is 28px wide and tall). The variable `$lineheight` contains the value `28px`, so whenever you specify dimensions in your design, base it on `$lineheight`:
+
+	div{
+		width: $lineheight*3;
+		height: $lineheight*2;
+		margin-bottom: $lineheight / 2;
+		padding-bottom: $lineheight / 2;
+	}
+
+This will maintain the grid throughout the design. Also use this technique in the typographic styles:
+
+	h1{
+		font-size: 4em;				/* 40px */
+		margin-bottom: $lineheight;
+		line-height: $lineheight*2;	/* 56px */
+	}
+
+Always keep an eye on the line-heights. By default, Dyluni has a 28px line-height applied to the body element.
 
 
 ## Outro
