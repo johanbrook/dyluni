@@ -12,23 +12,24 @@ The framework evolved from my own work: after seeing myself copying code into th
 
 When you first clone or download the framework you'll see this folder structure:
 
-	css/
-	fonts/
-	images/
 	index.html
-	js/
 	README.md
-	sass/
+	css
+	fonts
+	images
+	js
+	sass
+		library
+		pages
+		partials
 
 The index.html and sass folder are the interesting guys. Don't worry about the `css` folder since it's only CSS generated from the Sass files. However, there are some patches for Internet Explorer in pure CSS in there, which could be interesting later on.
-
-Just drop this structure into a new project folder, or implement it with your CMS or server framework of choice. If you're using Compass or some Sass plugin in Rails, the Sass files will live inside the `app/stylesheets/` directory. In this case `master.scss` is compiled into `master.css` in the `public/stylesheets/compiled/` directory. 
 
 ### Compiling Sass
 
 For a crash course in Sass, head over to [the project's website](http://sass-lang.com/tutorial.html).
 
-That'll give you [Haml](http://haml-lang.com/) and Sass. So, from now on you can forget regular CSS files. We'll now work with the `.scss` extension. Sass is really just an extension of CSS, so every CSS file is a valid SCSS file. You write styles in `.scss` files and then compile them into `.css` files (which you don't have to touch after compiling them). When I begin my work session I start with typing this in a terminal window:
+When I begin my work session I start with this in a terminal window (when standing in the site's root directory):
 
 	sass --watch sass:css
 
@@ -40,33 +41,71 @@ In production I usually minify my CSS. That's possible by appending a --style pa
 
 Now you'll get nice and compressed CSS.
 
-### Index.html
+## Index.html
 
-The main HTML file provides a basic setup for a new site. There are essential stuff in the `<head>` as well as a nice site structure.
+The main HTML file provides a basic setup for a new site. There are essential stuff in the `<head>` as well as a nice site structure. 
 	
-### sass/
+## SCSS
 
 In here we've got the goodness. `master.scss` is the master (duh) file which is generated into `master.css` – the only CSS file `index.html` imports. The power of Sass makes it possible to import partials, prefixed with an underscore in the filename, without having the server to make requests. 
 
-- `_core.scss` is something of a configuration file. In there you can set variables and other small things related to the site. Sometimes you'll have to tweak things inside of there, sometimes not.
-- `_main.scss` is the main, site specific style file, where you'll write everything related to your current project. Feel free to import partials inside of it (`_header.scss` and `_footer.scss` is already imported by default).
-- `_print.scss` includes styles for printers. Throw a glance in there before deploying your site.
-- `_responsive.scss` is a cool file in which you can define responsive styles for mobile devices. Depending on the width of the browser window, you can change layout, colors, font sizes – everything. You can pull off really advanced stuff with it.
-- `library/`
-	- `_reset.scss` is a HTML5 reset with some extra stuff by me.
-	- `_utils.scss` includes some Sass mixins and helper classes. You shouldn't have to touch it, unless you want to add mixins or code for reuse. I usually keep site specific mixins in `_main.scss`.
-	- `_hashgrid.scss` is the "config" file for [Hashgrid](http://hashgrid.com) which I use to align the design to a grid. Dyluni is based on a 980px wide, six column responsive grid. If you do any major changes in width of the body container, you may adjust stuff in this file. As you can see, I've used Sass variables to keep things in order.
-- `master.scss` is where all other files are imported into.
-- `partials/`
-	- `_footer.scss, _header.scss, _frontpage.scss ..` is where you can separate your Sass into individual files, which makes the development easier. Instead of scanning through a huge `_main.scss` you can divide them into logical sections. I usually use too many partials over too few.
+Import scheme:
+
+	master.scss
+		utils
+		reset
+		core
+			hashgrid
+		main
+			header
+			frontpage
+			forms
+			sidebar
+		responsive
+		print
 	
-### Responsive styles
 
-I've included a couple of media queries (in `_responsive.scss`) where you may customize the appearance to the viewport. It's also maintaining the grid all the way down (six columns, four columns, three columns, two columns). Play around with it and be amazed.
+### `master.scss`
 
-### Hashgrid
+The master file of doom. Every SCSS file below is imported into this file, which in turn is compiled into `master.css`. This is therefore the CSS file you refer from the HTML file. 
 
-I replaced my own hacky solution of viewing the baseline and vertical grid on the page with the mature [Hashgrid](http://hashgrid.com). It's built by typographic masters and even provides the functionality of creating several grids. I often create one grid for each media query (not included in Dyluni) to make everything add up. Please see the Hashgrid documentation for fine tuning.
+
+### `_core.scss`
+
+Basically the SCSS config file. In here you'll define site specific mixins, color variables, font stacks, helper classes, and other global styles for your project. 
+
+### `_main.scss`
+
+This is your main site style file. Start designing from here, so to speak. I recommend you to use Sass's nifty `@import` feature which lets you branch out your project into modules. Great for organization and re-use (i.e. don't dump all styles in here, dumbnut).
+
+### `_print.scss`
+
+What you think it is. Print styles.
+
+### `_responsive.scss`
+
+Styles for responsive web design. I've specified a couple of widths I often use (iPad, small screens, and iPhone-sized screens) but feel free to write your own. 
+
+When resizing the browser window the site's body container will shrink to a four, three and two column grid respectively. 
+
+Please note that the styles for larger smartphone screens will be inherited down to the iPhone/smartphone media query (there's no min-width property you see). That is because these two media queries tend to be very much alike. Just override stuff in the iPhone media query.
+
+
+### `_hashgrid.scss`
+
+I replaced my own hacky solution of viewing the baseline and vertical grid on the page with the mature [Hashgrid](http://hashgrid.com). It's built by typographic masters and even provides the functionality of creating several grids. I often create one grid for each media query (not included by default in Dyluni) to make everything add up. Please see the Hashgrid documentation for fine tuning. 
+
+To view the grid, open up `index.html` and simply press and hold **'G'** on your keyboard. Dyluni is built by default with a six column 980px wide grid, which you'll see when viewing for the first time.
+
+### `_reset.scss` and `_utils.scss`
+
+Slightly modified Meyer reset for HTML5 goes in `_reset.scss`. 
+
+In the utils file global mixin definition live, such as cross-browser box-shadow, border-radius and more handy stuff which makes your life easier. I recommend you to explore this file to see how it may help you.
+
+### The `pages` and `partials` directories
+
+Since the `@import` rule of Sass makes it easy to organize your project without having to maintain several CSS files which have to be referred from the HTML, you should branch out your project in these directories. Simply put header styles in `_header.scss` and styles for the front page in `_frontpage.scss` etc. It's great for maintenance as well as namespacing.
 
 
 ### Javascript

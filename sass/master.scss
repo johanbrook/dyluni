@@ -1,5 +1,8 @@
 /**
-*	The master file of doom
+*	Master.css
+*	
+*	Built by <yourname>
+*	Based on Dyluni (https://github.com/johanbrook/dyluni)
 */
 
 
@@ -11,9 +14,8 @@
 
 /*-  Main files
 ----------------------------------------------------------------------*/
-@import "core";				// Core styles
+@import "core";				// Core styles – the config file
 @import "main"; 			// The main, site specific .scss file
-	/* --> partials */ 		// Instead of putting all sections in one big stylesheet, divide them into smaller ones (like "header", "footer" etc)
 @import "responsive";		// Responsive styles (for iPhone, Android, iPad etc.)
 
 /*-  Print
