@@ -8,6 +8,8 @@ Dyluni is a site framework, sort of a boilerplate, which provides a basic site s
 
 The framework evolved from my own work: after seeing myself copying code into the same files over and over again, I decided to extract the stuff I was reusing and format it into a site structure I just could drop into new projects and start using. 
 
+**[Demo](http://johanbrook.com/dyluni-demo)**
+
 ## How to use Dyluni
 
 When you first clone or download the framework you'll see this folder structure:
