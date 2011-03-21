@@ -12,7 +12,9 @@ $(function($){
 	
 	
 	// Make a new grid overlay. See js/jquery.hashgrid.js for additional options
-	var grid = new hashgrid();
+	var grid = new hashgrid({
+		numberOfGrids: 2
+	});
 	
 	// Set up smooth scrolling to text anchors
 	$("a").smoothScroll();

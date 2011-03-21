@@ -53,7 +53,7 @@
  */
 #grid div.horiz{
 
-    /* 20px line height */
+    /* 28px line height */
     height: $lineheight - 1px;
     border-bottom: 1px dotted darkgray;
     margin: 0;
@@ -74,15 +74,12 @@
 
 }
 #grid.grid-2{
-
-    /* Adjustments */
-    padding: 0 160px;
-    width: 660px;
-
+    border-color: #aaa;
 }
 #grid.grid-2 div.vert{
 
     /* Vertical grid line colour for grid 2 */
-    border-color: crimson;
-
+    border-color: #aaa;
+	border-style: dotted;
+	width: $lineheight - 1px;
 }
