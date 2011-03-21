@@ -27,7 +27,6 @@ body{
 	------------------------------------------------------ */
 a{
 	-webkit-tap-highlight-color: $highlight;
-	@include transition(color 0.2s ease-out);
 }
 
 a:hover, a:focus{
@@ -51,6 +50,8 @@ h3{
 	font-size: 2em;
 }
 
+
+
 /*	=HEADER
 	------------------------------------------------------ */
 @import "partials/header";
@@ -58,7 +59,7 @@ h3{
 
 /*	=FRONTPAGE
 	------------------------------------------------------ */
-@import "partials/frontpage";
+@import "pages/frontpage";
 
 
 /*	=FORMS

@@ -69,7 +69,20 @@ img {
 /*- GLOBAL
 ----------------------------------------------------------------------*/
 
+/* For separators */
+.sep{
+	color: #000;
+	font-size: 0.8em;
+	line-height: 28px;
+}
 
+/* Nicer ampersand */
+.amp{
+	font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
+	font-size: 1.4em;
+	font-style: italic;
+	font-weight: normal;
+}
 
 
 /*- LINKS
@@ -93,7 +106,7 @@ h1, h2, h3, h4, h5, h6{
 	font-weight: normal; 
 	margin-bottom: 0; 
 	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;		/* Fix kerning */
+	text-rendering: optimizeLegibility;		/* Fixes kerning */
 	
 	a{
 		
@@ -104,12 +117,7 @@ h1, h2, h3, h4, h5, h6{
 /*- ELEMENTS
 ----------------------------------------------------------------------*/
 
-p, ul, ol{
-	@include font(1.3em, $lineheight);		/* Set global paragraph font size here
-											Remember to set margins in article text! */
-}
-
-abbr {
+abbr[title] {
 	cursor: help;
 	
 	&:hover{
@@ -117,10 +125,6 @@ abbr {
 	}
 }
 
-
-time[title]{
-	font-weight: bolder;
-}
 
 hr{
 	border: 0;
@@ -144,14 +148,6 @@ del{
 	border: 0;
 }
 
-/* Used for error messages and such. */
-
-.negative{
-	color: #b30000;
-}
-.positive{
-	color: green;
-}
 
 /**
 * 	Button style

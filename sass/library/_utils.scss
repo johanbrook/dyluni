@@ -32,9 +32,7 @@ $page_width_spec: 980;
 	-moz-column-count: $count; -moz-column-gap: 1.5em;
 	column-count: $count; column-gap: 1.5em;
 	
-	& > p,
-	& > ul,
-	& > ol{
+	& > * {
 		position: static;		// Boy, it took me long time to figure this out.
 	}
 }
@@ -131,16 +129,6 @@ $page_width_spec: 980;
 }
 
 
-// Reset common values
-@mixin reset{
-	margin: 0;
-	padding: 0;
-	height: 0;
-	border: 0;
-	font-size: 0;
-	content: "";
-}
-
 // Instead of calculating the percentages in responsive web design, just include "fluid(width)" (or any other property as the other parameter)
 
 @mixin fluid($width, $property: width, $tot: $page_width_spec){
@@ -170,30 +158,13 @@ $page_width_spec: 980;
 * Non-semantic helper classes
 */
 
-/* Nicer ampersand */
-.amp{
-	font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
-	font-size: 1.4em;
-	font-style: italic;
-	font-weight: normal;
-}
-
-
-/* For separators */
-.sep{
-	color: #000;
-	font-size: 0.8em;
-	line-height: 28px;
-}
 
 /* Quick floating */
 .alignleft{
 	float: left;
-	margin-right: 10px;
 }
 .alignright{
 	float: right;
-	margin-left: 10px;
 }
 
 /* Clearing stuff */
