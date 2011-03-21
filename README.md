@@ -128,7 +128,11 @@ More on the [Github repo](https://github.com/mcilvena/jQuery-Retina-Display-Plug
 
 ## Grid
 
-I use the [Square Grid](http://thesquaregrid.com/) as a starting point for all my projects, including this one. It's a 980px wide 35 column flexible grid. Therefore you'll find that most dimensions are based on the number 28 (each column in the grid is 28px wide and tall). The variable `$lineheight` contains the value `28px`, so whenever you specify dimensions in your design, base it on `$lineheight`:
+I use the [Square Grid](http://thesquaregrid.com/) as a starting point for all my projects, including this one. It's a 980px wide 35 column flexible grid. Therefore you'll find that most dimensions are based on the number 28 (each column in the grid is 28px wide and tall).
+
+Since you're able to specify variables in Sass, you're fully free to use your own column widths in Dyluni. Have a look at the variables `$page_width`, `$lineheight` and `$column` in `_core.scss` for that. Don't forget to adjust dimensions in `_hashgrid.scss` according to your grid.
+
+The variable `$lineheight` contains by default the value `28px`, so whenever you specify dimensions in your design, base it on `$lineheight`:
 
 	div{
 		width: $lineheight*3;
@@ -137,7 +141,7 @@ I use the [Square Grid](http://thesquaregrid.com/) as a starting point for all m
 		padding-bottom: $lineheight / 2;
 	}
 
-This will maintain the grid throughout the design. Also use this technique in the typographic styles:
+This will maintain the grid throughout the design. You should also use this technique in the typographic styles:
 
 	h1{
 		font-size: 4em;				/* 40px */
