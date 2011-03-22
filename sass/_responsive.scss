@@ -34,6 +34,10 @@
 		@include column(3, false);
 		-webkit-text-size-adjust: 100%;
 	}
+	
+	img{
+		max-width: 100%;
+	}
 }
 
 
@@ -44,4 +48,13 @@
 		@include column(2, false);
 		-webkit-text-size-adjust: 100%;
 	}
+	
+	.hide-mobile{
+		display: none;
+	}
+	
+	pre{
+		white-space: normal;
+	}
+	
 }
