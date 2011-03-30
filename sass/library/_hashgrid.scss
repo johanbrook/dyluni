@@ -6,7 +6,7 @@
 #grid{
 
     /* Dimensions - same width as your grid with gutters (980px) */
-    width: $page_width + $lineheight*2;
+    width: $page_width + $lineheight;
 
     /* Grid (left-aligned)
     position: absolute;
@@ -18,7 +18,7 @@
     position: absolute;
     top: 0;
     left: 50%;
-    margin-left: -$page_width / 2 - ($lineheight);
+    margin-left: -$page_width / 2 - ($lineheight / 2);
 	z-index: 999;
 
 }
@@ -34,13 +34,13 @@
     width: $column - 1px;
     border: solid darkturquoise;
     border-width: 0 1px;
-    margin-right: $lineheight - 1px;
+    margin-left: $lineheight - 1px;
 
 }
 
 #grid div.vert.first-line{
 
-    margin-left: $lineheight - 1px;
+    margin-left: $lineheight / 2 - 1px;
 
 }
 
@@ -70,7 +70,8 @@
 #grid.grid-1 div.vert{
 
     /* Vertical grid line colour for grid 1 */
-    border-color: darkturquoise;
+    border-color: green;
+	background-color: transparentize(green, 0.8);
 
 }
 #grid.grid-2{
@@ -78,8 +79,9 @@
 }
 #grid.grid-2 div.vert{
 
-    /* Vertical grid line colour for grid 2 */
-    border-color: #aaa;
+    /* Vertical grid line colour for grid 3 */
+    border-color: #bfebff;
 	border-style: dotted;
 	width: $lineheight - 1px;
+	background-color: transparentize(#bfebff, 0.5);
 }

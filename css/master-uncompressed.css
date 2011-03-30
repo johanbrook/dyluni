@@ -15,7 +15,8 @@
 */
 .block {
   float: none !important;
-  width: 100% !important; }
+  width: 100% !important;
+}
 
 /*
 * Non-semantic helper classes
@@ -25,7 +26,8 @@
   clear: both;
   display: block;
   height: 1px;
-  margin: -1px 0 0 0; }
+  margin: -1px 0 0 0;
+}
 
 .clearfix:after {
   visibility: hidden;
@@ -33,18 +35,23 @@
   font-size: 0;
   content: " ";
   clear: both;
-  height: 0; }
+  height: 0;
+}
 .clearfix {
-  display: inline-block; }
+  display: inline-block;
+}
 * html .clearfix {
-  height: 1%; }
+  height: 1%;
+}
 .clearfix {
-  display: block; }
+  display: block;
+}
 
 /* Hide for both screenreaders and browsers
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
 .hidden {
-  display: none; }
+  display: none;
+}
 
 /* Hide only visually, but have it available for screenreaders
    www.webaim.org/techniques/css/invisiblecontent/
@@ -53,47 +60,69 @@
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px); }
+  clip: rect(1px, 1px, 1px, 1px);
+}
 
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 /**
 *	The compulsory reset file. It's the HTML5 one (duh .. ) with some modifications.
 */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0b1 | 201101 . Modified by Johan 2011-01-03 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
-  position: relative; }
+  position: relative;
+}
 
 /* Enable absolute positioned elements inside these ones: */
 div, a, p, ul, li {
-  position: relative; }
+  position: relative;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 hr {
   display: block;
@@ -101,23 +130,29 @@ hr {
   border: 0;
   border-top: 1px solid #cccccc;
   margin: 28px 0 27px;
-  padding: 0; }
+  padding: 0;
+}
 
 label, a img {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 strong {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 em {
-  font-style: italic; }
+  font-style: italic;
+}
 
 small {
-  font-size: 85%; }
+  font-size: 85%;
+}
 
 abbr[title], dfn[title] {
   border-bottom: 1px dotted #888;
-  cursor: help; }
+  cursor: help;
+}
 
 /* remember to define visible focus styles! 
 :focus {
@@ -125,21 +160,26 @@ abbr[title], dfn[title] {
 } */
 /* remember to highlight inserts somehow! */
 ins {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 del {
-  text-decoration: line-through; }
+  text-decoration: line-through;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 input[type="radio"] {
-  vertical-align: text-bottom; }
+  vertical-align: text-bottom;
+}
 
 input[type="checkbox"] {
   vertical-align: bottom;
-  *vertical-align: baseline; }
+  *vertical-align: baseline;
+}
 
 pre {
   display: block;
@@ -159,15 +199,18 @@ pre {
   /* HP Printers */
   word-wrap: break-word;
   /* IE 5+ */
-  line-height: 1.5em; }
+  line-height: 1.5em;
+}
 
 sup {
   vertical-align: super;
-  font-size: smaller; }
+  font-size: smaller;
+}
 
 sub {
   vertical-align: sub;
-  font-size: smaller; }
+  font-size: smaller;
+}
 
 /*-  Main files
 ----------------------------------------------------------------------*/
@@ -186,14 +229,15 @@ because you still might want to alter things in here.
 ----------------------------------------------------------------------*/
 @font-face {
   font-family: 'Inconsolata';
-  src: url("../fonts/Inconsolata.eot#") format("embedded-opentype"), local("Inconsolata"), url("../fonts/Inconsolata.ttf") format("truetype"), url("../fonts/Inconsolata.svg#webfont") format("svg"); }
+  src: url("../fonts/Inconsolata.eot#") format("embedded-opentype"), local("Inconsolata"), url("../fonts/Inconsolata.ttf") format("truetype"), url("../fonts/Inconsolata.svg#webfont") format("svg");
+}
 
 /**
 *	Main grid container
 */
 #grid {
   /* Dimensions - same width as your grid with gutters (980px) */
-  width: 1036px;
+  width: 1008px;
   /* Grid (left-aligned)
   position: absolute;
   top: 0;
@@ -203,8 +247,9 @@ because you still might want to alter things in here.
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -518px;
-  z-index: 999; }
+  margin-left: -504px;
+  z-index: 999;
+}
 
 /**
  * Vertical grid lines
@@ -216,10 +261,12 @@ because you still might want to alter things in here.
   width: 139px;
   border: solid darkturquoise;
   border-width: 0 1px;
-  margin-right: 27px; }
+  margin-left: 27px;
+}
 
 #grid div.vert.first-line {
-  margin-left: 27px; }
+  margin-left: 13px;
+}
 
 /**
  * Horizontal grid lines, defined by your base line height
@@ -228,11 +275,12 @@ because you still might want to alter things in here.
  * visible height = height + borders + margins + padding
  */
 #grid div.horiz {
-  /* 20px line height */
+  /* 28px line height */
   height: 27px;
   border-bottom: 1px dotted darkgray;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /**
 * Classes for multiple grids
@@ -242,21 +290,27 @@ because you still might want to alter things in here.
 */
 #grid.grid-1 div.vert {
   /* Vertical grid line colour for grid 1 */
-  border-color: darkturquoise; }
+  border-color: green;
+  background-color: rgba(0, 128, 0, 0.2);
+}
 
 #grid.grid-2 {
-  /* Adjustments */
-  padding: 0 160px;
-  width: 660px; }
+  border-color: #aaa;
+}
 
 #grid.grid-2 div.vert {
-  /* Vertical grid line colour for grid 2 */
-  border-color: crimson; }
+  /* Vertical grid line colour for grid 3 */
+  border-color: #bfebff;
+  border-style: dotted;
+  width: 27px;
+  background-color: rgba(191, 235, 255, 0.5);
+}
 
 /*- Fluid images and objects ----------*/
 img {
   max-width: 100%;
-  height: auto !important; }
+  height: auto !important;
+}
 
 /*- GLOBAL HELPER CLASSES
 ----------------------------------------------------------------------*/
@@ -264,31 +318,37 @@ img {
 .sep {
   color: #000;
   font-size: 0.8em;
-  line-height: 28px; }
+  line-height: 28px;
+}
 
 /* Nicer ampersand */
 .amp {
   font-family: Baskerville, Palatino, "Palatino Linotype", "Book Antiqua", serif;
   font-size: 1.4em;
   font-style: italic;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 /* Quick floating */
 .alignleft {
-  float: left; }
+  float: left;
+}
 
 .alignright {
-  float: right; }
+  float: right;
+}
 
 /*- LINKS
 ----------------------------------------------------------------------*/
 a {
   position: relative;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
 a:active, a:focus {
   outline: none;
-  top: 1px; }
+  top: 1px;
+}
 
 /* =HEADINGS */
 /*-----------------------------------------*/
@@ -297,12 +357,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Fixes kerning */ }
+  /* Fixes kerning */
+}
 
 /*- ELEMENTS
 ----------------------------------------------------------------------*/
 abbr[title] {
-  cursor: help; }
+  cursor: help;
+}
 
 hr {
   border: 0;
@@ -310,20 +372,24 @@ hr {
   height: 1px;
   background-color: #e2e2e2;
   margin: 56px auto 55px;
-  /* Make up for the border */ }
+  /* Make up for the border */
+}
 
 pre, code {
   font-family: Inconsolata, Monaco, "Courier New", Courier, monospace;
-  line-height: 28px; }
+  line-height: 28px;
+}
 
 pre code {
   font-size: 1.1em;
   -webkit-font-smoothing: subpixel-antialiased;
-  /* Code doesn't look that good antialiased */ }
+  /* Code doesn't look that good antialiased */
+}
 
 del {
   color: #999;
-  border: 0; }
+  border: 0;
+}
 
 /**
 * 	Button style
@@ -343,7 +409,8 @@ del {
   font: normal 1.3em/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
-  padding: 0.3em 0.5em; }
+  padding: 0.3em 0.5em;
+}
 .button:active, button:active, input[type=submit]:active {
   -webkit-transition: none;
   -moz-transition: none;
@@ -355,7 +422,8 @@ del {
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
   -moz-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
   -o-box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
-  box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px; }
+  box-shadow: inset rgba(0, 0, 0, 0.5) 0 3px 5px;
+}
 
 /**
 *	MAIN STYLESHEET
@@ -376,25 +444,30 @@ body {
   color: #000;
   background-color: #fff;
   width: 980px;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 /*	=LINKS
 	------------------------------------------------------ */
 a {
-  -webkit-tap-highlight-color: yellow; }
+  -webkit-tap-highlight-color: yellow;
+}
 
 /*	=HEADINGS
 	------------------------------------------------------ */
 h1 {
   font-size: 4em;
   margin-bottom: 28px;
-  line-height: 56px; }
+  line-height: 56px;
+}
 
 h2 {
-  font-size: 2.4em; }
+  font-size: 2.4em;
+}
 
 h3 {
-  font-size: 2em; }
+  font-size: 2em;
+}
 
 /*	=HEADER
 	------------------------------------------------------ */
@@ -405,21 +478,38 @@ h3 {
 	------------------------------------------------------ */
 /* Search form */
 label {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
-input[type="text"], input[type="email"], input[type="url"], input.text, textarea {
-  -webkit-font-smoothing: antialiased; }
-input[type="text"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input.text::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input.text,
+textarea {
+  -webkit-font-smoothing: antialiased;
+}
+input[type="text"]::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="url"]::-webkit-input-placeholder,
+input.text::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.9em; }
-input[type="text"]:-moz-placeholder, input[type="email"]:-moz-placeholder, input[type="url"]:-moz-placeholder, input.text:-moz-placeholder, textarea:-moz-placeholder {
+  font-size: 0.9em;
+}
+input[type="text"]:-moz-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="url"]:-moz-placeholder,
+input.text:-moz-placeholder,
+textarea:-moz-placeholder {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+}
 
 textarea {
   line-height: 28px;
   resize: vertical;
-  -moz-resize: vertical; }
+  -moz-resize: vertical;
+}
 
 /* Define error styles: */
 /*	=SIDEBAR
@@ -428,26 +518,32 @@ textarea {
 /*	=FOOTER
 	------------------------------------------------------ */
 footer[role="contentinfo"] {
-  clear: both; }
+  clear: both;
+}
 footer[role="contentinfo"] p small {
-  font-size: 90%; }
+  font-size: 90%;
+}
 
 /*- optional vanity styles ----------*/
 ::selection {
   background: yellow;
   color: #000;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
 ::-moz-selection {
   background: yellow;
   color: #000;
-  text-shadow: none; }
+  text-shadow: none;
+}
 
 img::selection {
-  background: transparent; }
+  background: transparent;
+}
 
 img::-moz-selection {
-  background: transparent; }
+  background: transparent;
+}
 
 /*-  STYLES FOR A RESPONSIVE DESIGN
 ----------------------------------------------------------------------*/
@@ -457,7 +553,9 @@ img::-moz-selection {
 /* Target iPad sized tablets and smaller desktop screens. */
 @media only screen and (max-width: 1036px) and (min-width: 768px) {
   body {
-    width: 644px; } }
+    width: 644px;
+  }
+}
 
 /* Larger smartphones or other small web views. 
 	
@@ -467,13 +565,29 @@ img::-moz-selection {
 @media only screen and (max-width: 767px) {
   body {
     width: 476px;
-    -webkit-text-size-adjust: 100%; } }
+    -webkit-text-size-adjust: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
 
 /* iPhone and other smartphones */
 @media only screen and (max-width: 480px) {
   body {
     width: 308px;
-    -webkit-text-size-adjust: 100%; } }
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  pre {
+    white-space: normal;
+  }
+}
 
 /*-  Print
 ----------------------------------------------------------------------*/
@@ -481,28 +595,37 @@ img::-moz-selection {
   * {
     background: transparent !important;
     color: #444 !important;
-    text-shadow: none; }
+    text-shadow: none;
+  }
 
   a, a:visited {
     color: #444 !important;
-    text-decoration: underline; }
+    text-decoration: underline;
+  }
 
   a:after {
-    content: " (" attr(href) ")"; }
+    content: " (" attr(href) ")";
+  }
 
   abbr:after {
-    content: " (" attr(title) ")"; }
+    content: " (" attr(title) ")";
+  }
 
   pre, blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+  }
 
   img {
-    page-break-inside: avoid; }
+    page-break-inside: avoid;
+  }
 
   @page {
-    margin: 0.5cm; }
+    margin: 0.5cm;
+}
 
   p, h2, h3 {
     orphans: 3;
-    widows: 3; } }
+    widows: 3;
+  }
+}
