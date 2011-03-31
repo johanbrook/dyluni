@@ -13,6 +13,7 @@ label{
 input[type="text"],
 input[type="email"],
 input[type="url"],
+
 input.text,
 textarea{
 	// Uncomment if you don't want Safari to apply native OS controls
@@ -23,14 +24,9 @@ textarea{
 		
 	}
 	
-	&::-webkit-input-placeholder{
-		font-family: $sans;
-		font-size: 0.9em;
-	}
-	
-	&:-moz-placeholder{
-		font-family: $sans;
-		font-size: 0.9em;
+	&::-webkit-input-placeholder,
+	&::-moz-placeholder{
+		// Styles for the placeholder attributes
 	}
 }
 
