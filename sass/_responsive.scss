@@ -23,27 +23,11 @@
 }
 
 
-/* Larger smartphones or other small web views. 
-	
-	Please note that these styles will be inherited down to the iPhone/smartphone media query (there's no min-width property you see). That
-	is because these two media queries tend to be very much alike, and it's tedious to have to write the same styles twice.
-*/
-
-@media only screen and (max-width: 767px) {
-	body{
-		@include column(3, false);
-		-webkit-text-size-adjust: 100%;
-	}
-	
-	img{
-		max-width: 100%;
-	}
-}
 
 
 /* iPhone and other smartphones */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 767px) {
 	body{
 		@include column(2, false);
 		-webkit-text-size-adjust: 100%;
@@ -57,4 +41,22 @@
 		white-space: normal;
 	}
 	
+}
+
+
+/* Larger smartphones, iPhone landscape view, or other small web views. 
+	
+	Please note that these styles will be inherited down to the iPhone/smartphone media query (there's no min-width property you see). That
+	is because these two media queries tend to be very much alike, and it's tedious to have to write the same styles twice.
+*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	body{
+		@include column(3, false);
+		-webkit-text-size-adjust: 100%;
+	}
+	
+	img{
+		max-width: 100%;
+	}
 }
