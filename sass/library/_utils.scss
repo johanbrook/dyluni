@@ -95,6 +95,10 @@ $page_width_spec: 980;
 @mixin gradient($from, $to){
 	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
 	background-image: -moz-linear-gradient(center top, $from 0%, $to 100%);
+	background-image: -ms-linear-gradient(center top, $from 0%, $to 100%);
+	background-image: -o-linear-gradient(center top, $from 0%, $to 100%);
+	background-image: -webkit-linear-gradient(center top, $from 0%, $to 100%);
+	background-image: linear-gradient(center top, $from 0%, $to 100%);
 }
 
 
