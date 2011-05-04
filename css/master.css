@@ -410,7 +410,9 @@ img::selection, img::-moz-selection {
 /*	=PAGES
 	------------------------------------------------------ */
 /* Global styles for pages goes here */
-/*	=FRONTPAGE
+/*	=PAGES
+	
+	Import all separate pages below.
 	------------------------------------------------------ */
 /* Sample page. Create new SCSS files for each new view in your site/app. */
 /*	=FORMS

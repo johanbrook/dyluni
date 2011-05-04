@@ -9,6 +9,7 @@
 
 $page_width_spec: 980;
 
+
 @mixin debugmessage($message){
 	&::before{
 		content: $message;
@@ -35,17 +36,31 @@ $page_width_spec: 980;
 	& {display: block;}
 }
 
+
 // CSS3 columns.
 // @args $count: The number of columns.
-@mixin columns($count){
-	-webkit-column-count: $count; -webkit-column-gap: 1.5em;
-	-moz-column-count: $count; -moz-column-gap: 1.5em;
-	column-count: $count; column-gap: 1.5em;
+@mixin columns($count, $gap: $square, $width: auto){
+	
+	-webkit-column-count: $count; -webkit-column-gap: $gap;
+	-moz-column-count: $count; -moz-column-gap: $gap;
+	column-count: $count; column-gap: $gap;
+	
+	@if($width != auto){
+		-webkit-column-width: $width;
+		-moz-column-width: $width;
+		column-width: $width;
+	}
+	@else{
+		-webkit-column-width: auto;
+		-moz-column-width: auto;
+		column-width: auto;
+	}
 	
 	& > * {
 		position: static;		// Boy, it took me long time to figure this out.
 	}
 }
+
 
 // Reset columns
 @mixin no-columns{
@@ -54,11 +69,6 @@ $page_width_spec: 980;
 	column-count: 1;
 }
 
-// Shorthand for font size and line height.
-@mixin font($size, $line){
-	font-size: $size;
-	line-height: $line;
-}
 
 
 // Box shadow
@@ -129,7 +139,7 @@ $page_width_spec: 980;
 	float: none;
 	width: $width;
 	@if($centered == true){
-	margin: 0 auto;
+		margin: 0 auto;
 	}
 }
 .block{
@@ -146,17 +156,18 @@ $page_width_spec: 980;
 }
 
 
+
 // Handy when working with grid systems (which you always should).
 // When specyfing a width, just @include column(<number of columns>) and you're all set (as you can see, the mixin takes care of the
 // gutters and margins). 
  
-@mixin column($number: 1, $margin: false){
+@mixin column($number, $margin: false){
 	width: $column*$number + ($square * ($number - 1));
 	
 	@if($margin == true){
 		margin-right: $square;
 	
-		&:last-child,
+		&:last-of-type,
 		&.last {
 			margin-right: 0;
 		}
