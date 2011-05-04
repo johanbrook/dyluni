@@ -126,10 +126,6 @@ h1, h2, h3, h4, h5, h6{
 
 abbr[title] {
 	cursor: help;
-	
-	&:hover{
-		
-	}
 }
 
 
@@ -143,10 +139,6 @@ hr{
 
 pre, code{
 	font-family: $monospaced;
-	line-height: $lineheight;
-}
-pre code{
-	font-size: 1.1em;
 	-webkit-font-smoothing: subpixel-antialiased;		/* Code doesn't look that good antialiased */
 }
 
@@ -161,25 +153,18 @@ del{
 * 	Usage: include the mixin and define base color. I highly recommend you to customize these styles.
 */
 @mixin button($basecolor: #fff){
-		@include border-radius(3px);
 		-webkit-font-smoothing: antialiased;
 		display: inline-block;
-		background-color: $basecolor;				/* Backup */
-		@include gradient($basecolor, darken($basecolor, 10%));
 		font: normal 1.3em/1 $sans;
 		text-align: center;
 		text-decoration: none;
-		padding: 0.3em 0.5em;
 		
 	&:hover{
 
 	}
 	
 	&:active{
-		@include transition(none);
 		top: auto; outline: none !important;
-		
-		@include box-shadow(inset rgba(0,0,0, 0.5) 0 3px 5px);
 	}
 }
 
