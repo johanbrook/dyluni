@@ -43,7 +43,6 @@ body{
 	body{
 		
 		@if($DEBUG == true){
-			background-color: red;
 			@include debugmessage("Tablet media query fired");
 		}
 	}
@@ -51,7 +50,10 @@ body{
 	[role="complementary"],
 	[role="main"]{
 		@include block;
+		@include reset;
+		margin-top: $lineheight*2;
 	}
+	
 	
 }
 
@@ -68,7 +70,6 @@ body{
 @media only screen and (max-width: 767px) {
 	body{
 		@if($DEBUG == true){
-			background: green;
 			@include debugmessage("Mobile media query fired");
 		}
 		-webkit-text-size-adjust: 100%;
@@ -82,22 +83,29 @@ body{
 		white-space: normal;
 	}
 	
-}
+	[role="complementary"],
+	[role="main"]{
+		@include block;
+		@include reset;
+		margin-top: $lineheight*2;
+	}
+	
 
+	
+}
 
 /* 
 		SMALL SCREEN LAYOUT
-			Like the iPhone in portrait mode
+			Like the iPhone in landscape mode
 		
 		Inherits styles from: mobile layout and default layout.
 
 --------------------------------------------------------------------------------- */
 
-@media only screen and (max-width: 479px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 	body{
 		@if($DEBUG == true){
-			background: teal;
-			@include debugmessage("Small media query fired");
+			@include debugmessage("Wide mobile media query fired");
 		}
 	}
 }

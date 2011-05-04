@@ -136,16 +136,10 @@ $page_width_spec: 980;
 	@include block;
 }
 
-// For links or buttons with background-image applied, and you want it to change on hover:
-
-@mixin hover($dir: bottom){
-	&:hover{
-		background-position-y: #{$dir};
-	}
-}
 
 
-// Instead of calculating the percentages in responsive web design, just include "fluid(width)" (or any other property as the other parameter)
+// 		Instead of calculating the percentages in responsive web design, 
+// 		just include "fluid(width)" (or any other property as the other parameter)
 
 @mixin fluid($width, $property: width, $tot: $page_width_spec){
 	#{$property}: ($width/$page_width_spec)*100%;
@@ -154,14 +148,16 @@ $page_width_spec: 980;
 
 // Handy when working with grid systems (which you always should).
 // When specyfing a width, just @include column(<number of columns>) and you're all set (as you can see, the mixin takes care of the
-// gutters and margins). Set the margin parameter to false to omitt them.
+// gutters and margins). 
  
-@mixin column($number: 1, $margin: true){
+@mixin column($number: 1, $margin: false){
 	width: $column*$number + ($square * ($number - 1));
+	
 	@if($margin == true){
 		margin-right: $square;
 	
-		&:last-child{
+		&:last-child,
+		&.last {
 			margin-right: 0;
 		}
 	
@@ -170,14 +166,41 @@ $page_width_spec: 980;
 }
 
 
+// Resets padding and margin
+// @include reset(horizontal | vertical | all)
+
+@mixin reset($dir: horizontal){
+	@if $dir == horizontal{
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: 0;
+		margin-right: 0;
+		
+	}@else if $dir == vertical {
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+	}@else{
+		padding: 0;
+		margin: 0;	
+	}
+}
+
+
+
 /*
 * Non-semantic helper classes
 */
 
 
-
 /* Clearing stuff */
-.clear{clear: both; display: block; height: 1px; margin: -1px 0 0 0;}
+.clear{
+	clear: both; 
+	display: block; 
+	height: 1px; 
+	margin: -1px 0 0 0;
+}
 
 .clearfix{
 	@include clearfix;
@@ -185,14 +208,19 @@ $page_width_spec: 980;
 
 /* Hide for both screenreaders and browsers
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden { display:none; }
+.hidden { 
+	display:none; 
+}
 
 /* Hide only visually, but have it available for screenreaders
    www.webaim.org/techniques/css/invisiblecontent/
    Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
-.visuallyhidden { position:absolute !important;   
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px); }
+.visuallyhidden { 
+	position:absolute;   
+	left: -999em;
+}
  
 /* Hide visually and from screenreaders, but maintain layout */
-.invisible { visibility: hidden; }
+.invisible {
+	visibility: hidden; 
+}

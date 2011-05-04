@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 *	Master.css
 *	
@@ -50,10 +51,8 @@
    www.webaim.org/techniques/css/invisiblecontent/
    Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
 .visuallyhidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
-  /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px); }
+  position: absolute;
+  left: -999em; }
 
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible {
@@ -197,10 +196,6 @@ defining a mixin. Do not fear – this is stuff that doesn't go into "_reset.scs
 because you still might want to alter things in here. 
 
 ----------------------------------------------------------------------*/
-@font-face {
-  font-family: 'Inconsolata';
-  src: url("../fonts/Inconsolata.eot#") format("embedded-opentype"), local("Inconsolata"), url("../fonts/Inconsolata.ttf") format("truetype"), url("../fonts/Inconsolata.svg#webfont") format("svg"); }
-
 /**
 *	Main grid container
 */
@@ -242,7 +237,7 @@ because you still might want to alter things in here.
  */
 #grid div.horiz {
   /* 28px line height */
-  height: 27px;
+  height: 23px;
   border-bottom: 1px dotted darkgray;
   margin: 0;
   padding: 0; }
@@ -320,7 +315,7 @@ hr {
   padding: 0;
   height: 1px;
   background-color: #e2e2e2;
-  margin: 56px auto 55px;
+  margin: 48px auto 47px;
   /* Make up for the border */ }
 
 pre, code {
@@ -368,7 +363,7 @@ html {
 
 /* Please use the body element as main site wrapper. Nothing wrong with that. */
 body {
-  font: normal 14px/28px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 13px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 5%; }
 
 [role="main"] {
@@ -384,12 +379,12 @@ a {
 /*	=HEADINGS
 	------------------------------------------------------ */
 h1 {
-  font-size: 36.651px;
-  margin-bottom: 28px;
-  line-height: 56px; }
+  font-size: 34.033px;
+  margin-bottom: 24px;
+  line-height: 48px; }
 
 h2 {
-  font-size: 22.652px; }
+  font-size: 21.034px; }
 
 /*	=MISC
 	------------------------------------------------------ */
@@ -425,7 +420,7 @@ label {
   cursor: pointer; }
 
 textarea {
-  line-height: 28px;
+  line-height: 24px;
   resize: vertical;
   -moz-resize: vertical; }
 
@@ -463,7 +458,6 @@ textarea {
 
 */
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-pixel-ratio: 2) {}
 body {
   -webkit-transition: width 0.5s ease-out;
   -moz-transition: width 0.5s ease-out;
@@ -479,20 +473,22 @@ body {
 
 --------------------------------------------------------------------------------- */
 @media only screen and (min-width: 768px) and (max-width: 979px) {
-  body {
-    background-color: red; }
-    body::before {
-      content: "Tablet media query fired";
-      font-weight: bold;
-      display: block;
-      text-align: center;
-      background: yellow; }
+  body::before {
+    content: "Tablet media query fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: yellow; }
 
   [role="complementary"],
   [role="main"] {
     float: none;
-    width: 100%; } }
-
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 48px; } }
 /* 
 		MOBILE LAYOUT
 			Like the iPhone in landscape mode
@@ -502,7 +498,6 @@ body {
 --------------------------------------------------------------------------------- */
 @media only screen and (max-width: 767px) {
   body {
-    background: green;
     -webkit-text-size-adjust: 100%; }
     body::before {
       content: "Mobile media query fired";
@@ -515,25 +510,31 @@ body {
     display: none; }
 
   pre {
-    white-space: normal; } }
+    white-space: normal; }
 
+  [role="complementary"],
+  [role="main"] {
+    float: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 48px; } }
 /* 
 		SMALL SCREEN LAYOUT
-			Like the iPhone in portrait mode
+			Like the iPhone in landscape mode
 		
 		Inherits styles from: mobile layout and default layout.
 
 --------------------------------------------------------------------------------- */
-@media only screen and (max-width: 479px) {
-  body {
-    background: teal; }
-    body::before {
-      content: "Small media query fired";
-      font-weight: bold;
-      display: block;
-      text-align: center;
-      background: yellow; } }
-
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  body::before {
+    content: "Wide mobile media query fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: yellow; } }
 /*-  Print
 ----------------------------------------------------------------------*/
 @media print {
