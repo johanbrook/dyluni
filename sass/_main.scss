@@ -51,21 +51,44 @@ h3{
 }
 
 
+/*	=MISC
+	------------------------------------------------------ */
+
+::selection{
+	background: $highlight; 
+	color: #000; 
+	text-shadow: none;
+}
+::-moz-selection {
+	background: $highlight; 
+	color: #000; 
+	text-shadow: none;
+}
+
+img::selection, img::-moz-selection{
+	background: transparent;
+}
+
+
 
 /*	=HEADER
 	------------------------------------------------------ */
 @import "partials/header";
 
 
-/*	=FRONTPAGE
+/*	=PAGES
 	------------------------------------------------------ */
-@import "pages/frontpage";
+	
+/* Global styles for pages goes here */	
+	
+@import "pages/pages";
 
 
 /*	=FORMS
 	------------------------------------------------------ */
 	
 @import "partials/forms";
+
 
 /*	=SIDEBAR
 	------------------------------------------------------ */
@@ -75,12 +98,3 @@ h3{
 /*	=FOOTER
 	------------------------------------------------------ */
 @import "partials/footer";
-
-
-/*- optional vanity styles ----------*/
-
-::selection {background: $highlight; color: #000; text-shadow: none;}
-::-moz-selection {background: $highlight; color: #000; text-shadow: none;}
-
-img::selection {background: transparent;}
-img::-moz-selection {background: transparent;}
