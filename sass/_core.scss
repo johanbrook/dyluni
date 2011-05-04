@@ -100,7 +100,6 @@ img {
 ----------------------------------------------------------------------*/
 a{
 	position: relative;
-	-webkit-font-smoothing: antialiased;
 }
 
 a:active, a:focus{
@@ -114,10 +113,7 @@ a:active, a:focus{
 /*-----------------------------------------*/
 
 h1, h2, h3, h4, h5, h6{
-	font-weight: normal; 
-	margin-bottom: 0; 
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;		/* Fixes kerning */
+	text-rendering: optimizeLegibility;		/* Fixes kerning. Watch out for some performance issues though. */
 	
 	a{
 		

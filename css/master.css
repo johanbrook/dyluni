@@ -298,8 +298,7 @@ img {
 /*- LINKS
 ----------------------------------------------------------------------*/
 a {
-  position: relative;
-  -webkit-font-smoothing: antialiased; }
+  position: relative; }
 
 a:active, a:focus {
   outline: none;
@@ -308,11 +307,8 @@ a:active, a:focus {
 /* =HEADINGS */
 /*-----------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  margin-bottom: 0;
-  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Fixes kerning */ }
+  /* Fixes kerning. Watch out for some performance issues though. */ }
 
 /*- ELEMENTS
 ----------------------------------------------------------------------*/
@@ -443,13 +439,6 @@ img::selection, img::-moz-selection {
 /* Search form */
 label {
   cursor: pointer; }
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input.text,
-textarea {
-  -webkit-font-smoothing: antialiased; }
 
 textarea {
   line-height: 24px;
