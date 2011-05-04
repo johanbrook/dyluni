@@ -371,6 +371,11 @@ body {
   font: normal 14px/28px "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 5%; }
 
+[role="main"] {
+  width: 60.8%;
+  float: left;
+  margin-right: 1%; }
+
 /*	=LINKS
 	------------------------------------------------------ */
 a {
@@ -424,6 +429,11 @@ textarea {
 /*	=SIDEBAR
 	------------------------------------------------------ */
 /* Global styles for sidebars */
+[role="complementary"] {
+  width: 37.2%;
+  float: right;
+  margin-left: 1%; }
+
 /*	=FOOTER
 	------------------------------------------------------ */
 [role="contentinfo"] {
