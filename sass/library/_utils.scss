@@ -9,6 +9,16 @@
 
 $page_width_spec: 980;
 
+@mixin debugmessage($message){
+	&::before{
+		content: $message;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+		background: yellow;
+	}
+}
+
 
 // A regular clearfix which can be applied directly in the CSS (no need for nasty HTML classes): "@include clearfix" on parent element.
 @mixin clearfix{

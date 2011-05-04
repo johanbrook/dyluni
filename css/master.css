@@ -357,14 +357,16 @@ del {
 */
 /*	=MAIN
 	------------------------------------------------------ */
+html {
+  background-color: #fff; }
+
+/* Please use the body element as main site wrapper. Nothing wrong with that. */
 body {
-  /* 62.5% = 10px */
-  /* Since the font now is 10px everywhere on the site, you'll have to define font-sizes on most elements. Use one of the Cs in
-  "CSS" – Cascading! */
-  font: normal 62.5%/28px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #000;
-  background-color: #fff;
-  width: 980px;
+  width: 80%;
+  /* If you want your design to span over the full screen, remove this row */
+  max-width: 98em;
+  /* Sets the max-width of the wrapper. Currently $fontsize*98 = 1274px */
+  font: normal 13px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 auto; }
 
 /*	=LINKS
@@ -432,19 +434,59 @@ footer[role="contentinfo"] {
 
 /*-  STYLES FOR A RESPONSIVE DESIGN
 ----------------------------------------------------------------------*/
-/* Feel free to add more media queries. These are the guys I usually use */
+/* 
+	Feel free to add more media queries. These are the guys I usually use: 
+	
+	* 979px (980px - 1px) 	: One pixel less than the main wrapper container's width.
+	* 767px					: Mobile styles. Will be inherited all the way down.
+	* 479px					: Used for narrow smartphone screens (like the iPhone in portrait view)
+	
+	
+	I highly encourage you to finetune them to your own and your project's needs!
+
+*/
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-pixel-ratio: 2) {}
-/* Target iPad sized tablets and smaller desktop screens. */
-@media only screen and (max-width: 1036px) and (min-width: 768px) {
-  body {
-    width: 632px; } }
+body {
+  -webkit-transition: width 0.5s ease-out;
+  -moz-transition: width 0.5s ease-out;
+  -o-transition: width 0.5s ease-out;
+  -ms-transition: width 0.5s ease-out;
+  transition: width 0.5s ease-out; }
 
-/* iPhone and other smartphones */
+/* Fires when the browser window is smaller than the main body width: */
+@media only screen and (max-width: 979px) {
+  body {
+    width: 90%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 2.857%;
+    padding-left: 2.857%;
+    background-color: red; }
+    body::before {
+      content: "979px media query fired";
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      background: yellow; }
+
+  img {
+    max-width: 100%; } }
+
+/* Mobile. All styles are inherited down all the way. */
 @media only screen and (max-width: 767px) {
   body {
-    width: 304px;
+    background: green;
+    width: 100%;
     -webkit-text-size-adjust: 100%; }
+    body::before {
+      content: "767px (Mobile) media query fired";
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      background: yellow; }
 
   .hide-mobile {
     display: none; }
@@ -452,18 +494,16 @@ footer[role="contentinfo"] {
   pre {
     white-space: normal; } }
 
-/* Larger smartphones, iPhone landscape view, or other small web views. 
-	
-	Please note that these styles will be inherited down to the iPhone/smartphone media query (there's no min-width property you see). That
-	is because these two media queries tend to be very much alike, and it's tedious to have to write the same styles twice.
-*/
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+/* Only for small screen phones, like the iPhone in portrait mode */
+@media only screen and (max-width: 479px) {
   body {
-    width: 468px;
-    -webkit-text-size-adjust: 100%; }
-
-  img {
-    max-width: 100%; } }
+    background: teal; }
+    body::before {
+      content: "479px media query fired";
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      background: yellow; } }
 
 /*-  Print
 ----------------------------------------------------------------------*/

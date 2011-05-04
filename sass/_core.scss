@@ -12,7 +12,10 @@ because you still might want to alter things in here.
 
 ----------------------------------------------------------------------*/
 
-// Font stacks
+$DEBUG: true;
+
+
+// Typography
 
 @font-face {
 	font-family: 'Inconsolata';
@@ -25,6 +28,14 @@ because you still might want to alter things in here.
 $serif: 		Georgia, "Times New Roman", serif;
 $sans: 			"Helvetica Neue", Helvetica, Arial, sans-serif;
 $monospaced: 	Inconsolata, Monaco, "Courier New", Courier, monospace;
+
+
+$fontsize:		13px; 		// Sets the main body font size
+
+$lineheight: 	24px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
+							// ALWAYS stick this variable when adding vertical margins, paddings, etc., and you'll see
+							// the content stick to the vertical grid (hold 'G' on your keyboard to view).
+
 
 
 // Colors
@@ -41,10 +52,6 @@ $highlight: 	yellow;		// For callouts, for example
 
 $page_width: 	980px;		// Sets the main wrapper width to 980px. Change at leisure. Unfortunately, you have to change "$page_width_spec"
 							// in library/_utils.scss as well.
-
-$lineheight: 	24px;		// Specifies the global lineheight. Used for a nice vertical rhythm. Remember to 
-							// ALWAYS stick this variable when adding vertical margins, paddings, etc., and you'll see
-							// the content stick to the vertical grid (hold 'G' on your keyboard to view).
 
 $square:		28px; 		// Sets the horizontal spacing unit, e.g. a single column in the 35 column grid.
 

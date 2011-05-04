@@ -1,7 +1,17 @@
 /*-  STYLES FOR A RESPONSIVE DESIGN
 ----------------------------------------------------------------------*/
 
-/* Feel free to add more media queries. These are the guys I usually use */
+/* 
+	Feel free to add more media queries. These are the guys I usually use: 
+	
+	* 979px (980px - 1px) 	: One pixel less than the main wrapper container's width.
+	* 767px					: Mobile styles. Will be inherited all the way down.
+	* 479px					: Used for narrow smartphone screens (like the iPhone in portrait view)
+	
+	
+	I highly encourage you to finetune them to your own and your project's needs!
+
+*/
 
 
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
@@ -10,26 +20,43 @@
 }
 
 
+body{
+	@include transition(width .5s ease-out);
+}
 
+/* Fires when the browser window is smaller than the main body width: */
 
-/* Target iPad sized tablets and smaller desktop screens. */
-
-@media only screen and (max-width: 1036px) and (min-width: 768px) {
-		
+@media only screen and (max-width: 979px){
+	
 	body{
-		@include column(4, false);
+		width: 90%;
+		@include box-sizing;
+		@include fluid(28, "padding-right");
+		@include fluid(28, "padding-left");
+		
+		@if($DEBUG == true){
+			background-color: red;
+			@include debugmessage("979px media query fired");
+		}
 	}
-
+	
+	img{
+		max-width: 100%;
+	}
+	
 }
 
 
 
-
-/* iPhone and other smartphones */
+/* Mobile. All styles are inherited down all the way. */
 
 @media only screen and (max-width: 767px) {
 	body{
-		@include column(2, false);
+		@if($DEBUG == true){
+			background: green;
+			@include debugmessage("767px (Mobile) media query fired");
+		}
+		width: 100%;
 		-webkit-text-size-adjust: 100%;
 	}
 	
@@ -44,19 +71,13 @@
 }
 
 
-/* Larger smartphones, iPhone landscape view, or other small web views. 
-	
-	Please note that these styles will be inherited down to the iPhone/smartphone media query (there's no min-width property you see). That
-	is because these two media queries tend to be very much alike, and it's tedious to have to write the same styles twice.
-*/
+/* Only for small screen phones, like the iPhone in portrait mode */
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (max-width: 479px) {
 	body{
-		@include column(3, false);
-		-webkit-text-size-adjust: 100%;
-	}
-	
-	img{
-		max-width: 100%;
+		@if($DEBUG == true){
+			background: teal;
+			@include debugmessage("479px media query fired");
+		}
 	}
 }
