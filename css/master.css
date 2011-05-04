@@ -242,7 +242,7 @@ because you still might want to alter things in here.
  */
 #grid div.horiz {
   /* 28px line height */
-  height: 23px;
+  height: 27px;
   border-bottom: 1px dotted darkgray;
   margin: 0;
   padding: 0; }
@@ -320,7 +320,7 @@ hr {
   padding: 0;
   height: 1px;
   background-color: #e2e2e2;
-  margin: 48px auto 47px;
+  margin: 56px auto 55px;
   /* Make up for the border */ }
 
 pre, code {
@@ -355,6 +355,12 @@ del {
 *	Be sure to name them with an underscore in the beginning so SASS doesn't compile them
 *	separately.
 */
+/* Modular Scale ---------------------- 
+
+	$fontsize @ 1:1.618	  
+	http://modularscale.com/scale/?px1=13&px2=&ra1=1.618&ra2=0
+
+----------------------*/
 /*	=MAIN
 	------------------------------------------------------ */
 html {
@@ -362,12 +368,8 @@ html {
 
 /* Please use the body element as main site wrapper. Nothing wrong with that. */
 body {
-  width: 80%;
-  /* If you want your design to span over the full screen, remove this row */
-  max-width: 98em;
-  /* Sets the max-width of the wrapper. Currently $fontsize*98 = 1274px */
-  font: normal 13px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0 auto; }
+  font: normal 14px/28px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 5%; }
 
 /*	=LINKS
 	------------------------------------------------------ */
@@ -377,15 +379,12 @@ a {
 /*	=HEADINGS
 	------------------------------------------------------ */
 h1 {
-  font-size: 4em;
-  margin-bottom: 24px;
-  line-height: 48px; }
+  font-size: 36.651px;
+  margin-bottom: 28px;
+  line-height: 56px; }
 
 h2 {
-  font-size: 2.4em; }
-
-h3 {
-  font-size: 2em; }
+  font-size: 22.652px; }
 
 /*	=MISC
 	------------------------------------------------------ */
@@ -417,7 +416,7 @@ label {
   cursor: pointer; }
 
 textarea {
-  line-height: 24px;
+  line-height: 28px;
   resize: vertical;
   -moz-resize: vertical; }
 
@@ -427,9 +426,9 @@ textarea {
 /* Global styles for sidebars */
 /*	=FOOTER
 	------------------------------------------------------ */
-footer[role="contentinfo"] {
+[role="contentinfo"] {
   clear: both; }
-  footer[role="contentinfo"] p small {
+  [role="contentinfo"] p small {
     font-size: 90%; }
 
 /*-  STYLES FOR A RESPONSIVE DESIGN
@@ -442,7 +441,11 @@ footer[role="contentinfo"] {
 	* 479px					: Used for narrow smartphone screens (like the iPhone in portrait view)
 	
 	
-	I highly encourage you to finetune them to your own and your project's needs!
+	I highly encourage you to finetune all measures and widths to your own and your project's needs!
+	
+	Also, try using the 'debugmessage' mixin for showing exactly when a media query fires:
+	
+		@include debugmessage('767px media query fired');
 
 */
 /* For iPhone 4. Remember to use 'background-size' do define the original dimensions */
@@ -454,19 +457,12 @@ body {
   -ms-transition: width 0.5s ease-out;
   transition: width 0.5s ease-out; }
 
-/* Fires when the browser window is smaller than the main body width: */
-@media only screen and (max-width: 979px) {
+/* Tablet layout. Fires when the browser window is smaller than the main body width: */
+@media only screen and (min-width: 768px) and (max-width: 979px) {
   body {
-    width: 90%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-right: 2.857%;
-    padding-left: 2.857%;
     background-color: red; }
     body::before {
-      content: "979px media query fired";
+      content: "979px (tablet) media query fired";
       font-weight: bold;
       display: block;
       text-align: center;
@@ -479,7 +475,6 @@ body {
 @media only screen and (max-width: 767px) {
   body {
     background: green;
-    width: 100%;
     -webkit-text-size-adjust: 100%; }
     body::before {
       content: "767px (Mobile) media query fired";

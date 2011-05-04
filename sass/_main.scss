@@ -8,6 +8,14 @@
 *	separately.
 */
 
+	
+/* Modular Scale ---------------------- 
+
+	$fontsize @ 1:1.618	  
+	http://modularscale.com/scale/?px1=13&px2=&ra1=1.618&ra2=0
+
+----------------------*/
+
 
 /*	=MAIN
 	------------------------------------------------------ */
@@ -20,12 +28,8 @@ html{
 /* Please use the body element as main site wrapper. Nothing wrong with that. */	
 	
 body{	
-	width: 80%; 										/* If you want your design to span over the full screen, remove this row */
-	max-width: 98em; 									/* Sets the max-width of the wrapper. Currently $fontsize*98 = 1274px */
-	
 	font: normal #{$fontsize}/#{$lineheight} $sans;
-
-	margin: 0 auto;
+	margin: 0 5%;
 }
 
 /*	=LINKS
@@ -43,18 +47,19 @@ a:hover, a:focus{
 /*	=HEADINGS
 	------------------------------------------------------ */	
 	
+	
 h1{
-	font-size: 4em;
+	font-size: $fontsize*1.618*1.618;
 	margin-bottom: $lineheight;
 	line-height: $lineheight*2;
 }
 
 h2{
-	font-size: 2.4em;
+	font-size: $fontsize*1.618;
 }
 
 h3{
-	font-size: 2em;
+	
 }
 
 

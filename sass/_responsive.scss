@@ -9,7 +9,11 @@
 	* 479px					: Used for narrow smartphone screens (like the iPhone in portrait view)
 	
 	
-	I highly encourage you to finetune them to your own and your project's needs!
+	I highly encourage you to finetune all measures and widths to your own and your project's needs!
+	
+	Also, try using the 'debugmessage' mixin for showing exactly when a media query fires:
+	
+		@include debugmessage('767px media query fired');
 
 */
 
@@ -24,19 +28,15 @@ body{
 	@include transition(width .5s ease-out);
 }
 
-/* Fires when the browser window is smaller than the main body width: */
+/* Tablet layout. Fires when the browser window is smaller than the main body width: */
 
-@media only screen and (max-width: 979px){
+@media only screen and (min-width: 768px) and (max-width: 979px){
 	
 	body{
-		width: 90%;
-		@include box-sizing;
-		@include fluid(28, "padding-right");
-		@include fluid(28, "padding-left");
 		
 		@if($DEBUG == true){
 			background-color: red;
-			@include debugmessage("979px media query fired");
+			@include debugmessage("979px (tablet) media query fired");
 		}
 	}
 	
@@ -56,7 +56,6 @@ body{
 			background: green;
 			@include debugmessage("767px (Mobile) media query fired");
 		}
-		width: 100%;
 		-webkit-text-size-adjust: 100%;
 	}
 	
