@@ -28,7 +28,15 @@ body{
 	@include transition(width .5s ease-out);
 }
 
-/* Tablet layout. Fires when the browser window is smaller than the main body width: */
+
+
+/* 
+		TABLET LAYOUT
+			Or smaller screens
+			
+		Inherits styles from: default layout
+
+--------------------------------------------------------------------------------- */
 
 @media only screen and (min-width: 768px) and (max-width: 979px){
 	
@@ -36,25 +44,32 @@ body{
 		
 		@if($DEBUG == true){
 			background-color: red;
-			@include debugmessage("979px (tablet) media query fired");
+			@include debugmessage("Tablet media query fired");
 		}
 	}
 	
-	img{
-		max-width: 100%;
+	[role="complementary"],
+	[role="main"]{
+		@include block;
 	}
 	
 }
 
 
 
-/* Mobile. All styles are inherited down all the way. */
+/* 
+		MOBILE LAYOUT
+			Like the iPhone in landscape mode
+			
+		Inherits styles from: default layout	
+		
+--------------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 767px) {
 	body{
 		@if($DEBUG == true){
 			background: green;
-			@include debugmessage("767px (Mobile) media query fired");
+			@include debugmessage("Mobile media query fired");
 		}
 		-webkit-text-size-adjust: 100%;
 	}
@@ -70,13 +85,19 @@ body{
 }
 
 
-/* Only for small screen phones, like the iPhone in portrait mode */
+/* 
+		SMALL SCREEN LAYOUT
+			Like the iPhone in portrait mode
+		
+		Inherits styles from: mobile layout and default layout.
+
+--------------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 479px) {
 	body{
 		@if($DEBUG == true){
 			background: teal;
-			@include debugmessage("479px media query fired");
+			@include debugmessage("Small media query fired");
 		}
 	}
 }

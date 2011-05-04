@@ -126,8 +126,8 @@ $page_width_spec: 980;
 // Used in responsive design, make floated elements span 100% and remove the float:
 
 @mixin block($width: 100%, $centered: false){
-	float: none !important;
-	width: $width !important;
+	float: none;
+	width: $width;
 	@if($centered == true){
 	margin: 0 auto;
 	}
@@ -157,9 +157,9 @@ $page_width_spec: 980;
 // gutters and margins). Set the margin parameter to false to omitt them.
  
 @mixin column($number: 1, $margin: true){
-	width: $column*$number + ($lineheight * ($number - 1));
+	width: $column*$number + ($square * ($number - 1));
 	@if($margin == true){
-		margin-right: $lineheight;
+		margin-right: $square;
 	
 		&:last-child{
 			margin-right: 0;

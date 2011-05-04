@@ -14,8 +14,8 @@
 *
 */
 .block {
-  float: none !important;
-  width: 100% !important; }
+  float: none;
+  width: 100%; }
 
 /*
 * Non-semantic helper classes
@@ -408,6 +408,10 @@ img::selection, img::-moz-selection {
 
 /*	=HEADER
 	------------------------------------------------------ */
+[role="navigation"] li {
+  display: inline-block;
+  margin-right: 1%; }
+
 /*	=PAGES
 	------------------------------------------------------ */
 /* Global styles for pages goes here */
@@ -467,27 +471,41 @@ body {
   -ms-transition: width 0.5s ease-out;
   transition: width 0.5s ease-out; }
 
-/* Tablet layout. Fires when the browser window is smaller than the main body width: */
+/* 
+		TABLET LAYOUT
+			Or smaller screens
+			
+		Inherits styles from: default layout
+
+--------------------------------------------------------------------------------- */
 @media only screen and (min-width: 768px) and (max-width: 979px) {
   body {
     background-color: red; }
     body::before {
-      content: "979px (tablet) media query fired";
+      content: "Tablet media query fired";
       font-weight: bold;
       display: block;
       text-align: center;
       background: yellow; }
 
-  img {
-    max-width: 100%; } }
+  [role="complementary"],
+  [role="main"] {
+    float: none;
+    width: 100%; } }
 
-/* Mobile. All styles are inherited down all the way. */
+/* 
+		MOBILE LAYOUT
+			Like the iPhone in landscape mode
+			
+		Inherits styles from: default layout	
+		
+--------------------------------------------------------------------------------- */
 @media only screen and (max-width: 767px) {
   body {
     background: green;
     -webkit-text-size-adjust: 100%; }
     body::before {
-      content: "767px (Mobile) media query fired";
+      content: "Mobile media query fired";
       font-weight: bold;
       display: block;
       text-align: center;
@@ -499,12 +517,18 @@ body {
   pre {
     white-space: normal; } }
 
-/* Only for small screen phones, like the iPhone in portrait mode */
+/* 
+		SMALL SCREEN LAYOUT
+			Like the iPhone in portrait mode
+		
+		Inherits styles from: mobile layout and default layout.
+
+--------------------------------------------------------------------------------- */
 @media only screen and (max-width: 479px) {
   body {
     background: teal; }
     body::before {
-      content: "479px media query fired";
+      content: "Small media query fired";
       font-weight: bold;
       display: block;
       text-align: center;
