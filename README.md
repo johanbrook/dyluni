@@ -185,4 +185,4 @@ You may set the body font size and line height with the `$fontsize` and `$linehe
 
 Feel free to fork or get in touch with me [here](http://johanbrook.com "Contact"). 
 
-I plan on constantly updating Dyluni according to current best practices, and I once again happily recieve suggestions and contributions.
+I plan on constantly updating Dyluni according to current best practices, and I once again happily receive suggestions and contributions.
