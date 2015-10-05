@@ -171,7 +171,7 @@ When resizing the browser window or viewing on a small-screen device, the body e
 
 # Typography
 
-You may set the body font size and line height with the `$fontsize` and `$lineheight` variables in `_core.scss`. Heading sizes are calulated with the Golden Ratio based on the body font size, like this:
+You may set the body font size and line height with the `$fontsize` and `$lineheight` variables in `_core.scss`. Heading sizes are calculated with the Golden Ratio based on the body font size, like this:
 
 	h1{
 		font-size: $fontsize*1.618*1.618;
